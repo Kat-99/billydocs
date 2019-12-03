@@ -20,16 +20,19 @@ class User
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank(message="Veuillez renseigner votre nom")
      */
-    private $name;
+    private $lastname;
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank(message="Veuillez renseigner votre prénom")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="Veuillez entrer votre email")
      */
     private $email;
 
@@ -45,11 +48,13 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez entrer un mot de passe")
      */
     private $password;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Files", mappedBy="user")
+     * @Assert\NotBlank(message="Veuillez charger un fichier")
      */
     private $files;
 
@@ -63,14 +68,14 @@ class User
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getLastname(): ?string
     {
-        return $this->name;
+        return $this->lastname;
     }
 
-    public function setName(string $name): self
+    public function setLastname(string $lastname): self
     {
-        $this->name = $name;
+        $this->lastname = $lastname;
 
         return $this;
     }

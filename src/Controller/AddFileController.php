@@ -64,6 +64,54 @@ class AddFileController extends AbstractController
             // Creates form
             ->getForm();
 
+        //Manage received datas
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            /** @var UploadedFile $docFile */
+            $docFile = $form['filename']->getData();
+
+            if ($docFile) {
+                $newFileName = $this->slugify($file->getTitle()) . '-' . uniqid().'.'.$docFile->guessExtension();
+                //Laisser à symphony gérer le type de l'image, jpeg, png etc...
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $docFile->move(
+                        $this->getParameter('articles_directory'),
+                        $newFileName
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $article->setImage($newFilename);
+            }
+
+            # Génération de l'alias de l'article
+            $article->setAlias( $this->slugify($article->getTitle()));
+
+            # Sauvegarde en BDD
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            # Notification
+            $this->addFlash('notice', 'Félicitations votre article est en ligne !');
+
+            # Redirection
+            return $this->redirectToRoute('default_article', [
+                'categorie' => $article->getCategory()->getAlias(),
+                'alias' => $article->getAlias(),
+                'id' => $article->getId()
+            ]);
+
+        }
+
 
 
 
