@@ -21,6 +21,11 @@ class Files
      */
     private $title;
 
+    /*
+     * @ORM\Column(type="string", length=255)
+     */
+    private $filename;
+
     /**
      * @ORM\Column(type="array")
      */
@@ -35,6 +40,12 @@ class Files
      * @ORM\Column(type="datetime")
      */
     private $added_date;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $docdate;
+
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -60,6 +71,18 @@ class Files
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->filename;
+    }
+
+    public function setFileName(string $filename): self
+    {
+        $this->filename = $filename;
 
         return $this;
     }
@@ -99,6 +122,19 @@ class Files
 
         return $this;
     }
+
+    public function getDocDate(): ?\DateTimeInterface
+    {
+        return $this->docdate;
+    }
+
+    public function setDocDate(\DateTimeInterface $docdate): self
+    {
+        $this->docdate = $docdate;
+
+        return $this;
+    }
+
 
     public function getLabel(): ?string
     {
