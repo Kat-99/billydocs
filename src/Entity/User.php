@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,7 +21,7 @@ class User
     /**
      * @ORM\Column(type="string", length=80)
      */
-    private $lastname;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -46,19 +48,29 @@ class User
      */
     private $password;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Files", mappedBy="user")
+     */
+    private $files;
+
+    public function __construct()
+    {
+        $this->files = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getLastname(): ?string
+    public function getName(): ?string
     {
-        return $this->lastname;
+        return $this->name;
     }
 
-    public function setLastname(string $lastname): self
+    public function setName(string $name): self
     {
-        $this->lastname = $lastname;
+        $this->name = $name;
 
         return $this;
     }
@@ -119,6 +131,37 @@ class User
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Files[]
+     */
+    public function getFiles(): Collection
+    {
+        return $this->files;
+    }
+
+    public function addFile(Files $file): self
+    {
+        if (!$this->files->contains($file)) {
+            $this->files[] = $file;
+            $file->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFile(Files $file): self
+    {
+        if ($this->files->contains($file)) {
+            $this->files->removeElement($file);
+            // set the owning side to null (unless already changed)
+            if ($file->getUser() === $this) {
+                $file->setUser(null);
+            }
+        }
 
         return $this;
     }
