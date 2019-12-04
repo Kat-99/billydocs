@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{#{% form_theme form 'bootstrap_4_layout.html.twig' %}#}
+
+{% block title %}
+    Inscription/connexion
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+{% endblock %}
+
+{% block  body %}
+    <div class="container md-7 ">
+        <div class="row d-flex flex-column mx-auto">
+
+            <div class="col-md-6 border border-primary mx-auto">
+                <div class="col-12">
+                    <div class="col-12 d-block">
+                        <h1 class="text-center">BILLYDOCS</h1>
+                        {{ form(form) }}
+                    </div>
+                    <div class="col-12 d-block">
+                        {{ form(formname) }}
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6 d-inline mx-auto">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form(formfirst) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form(formlog) }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+{% endblock %}

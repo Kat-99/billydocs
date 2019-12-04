@@ -42,6 +42,11 @@ class User
     private $last_logged_date;
 
     /**
+     * @ORM\Column(type="integer", length=80)
+     */
+    private $age;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $password;
@@ -78,6 +83,18 @@ class User
     public function getEmail(): ?string
     {
         return $this->email;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(string $age): self
+    {
+        $this->email = $age;
+
+        return $this;
     }
 
     public function setEmail(string $email): self
