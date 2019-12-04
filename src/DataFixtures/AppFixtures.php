@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
                 ->setInscriptionDate($faker->dateTime)
                 ->setLastLoggedDate($faker->dateTime)
                 ->setPassword('password');
-
+            
             $manager->persist($user);
 
             $users[] = $user;
