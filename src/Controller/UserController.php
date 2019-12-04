@@ -19,9 +19,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/acceuil", name="user")
+     * @Route("/index", name="log")
      */
-    public function firstlog()
+    public function log()
     {
         $user = new User();
 
