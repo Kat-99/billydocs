@@ -41,6 +41,8 @@ class User
      */
     private $last_logged_date;
 
+
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -79,6 +81,7 @@ class User
     {
         return $this->email;
     }
+
 
     public function setEmail(string $email): self
     {
