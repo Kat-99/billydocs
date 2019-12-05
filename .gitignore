@@ -7,3 +7,6 @@
 /var/
 /vendor
 ###< symfony/framework-bundle ###
+.idea/billydocs.iml
+.idea/php.xml
+.idea/workspace.xml
