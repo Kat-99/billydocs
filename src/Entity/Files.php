@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FilesRepository")
@@ -18,7 +19,7 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="Veuillez donner un titre à votre document)
+     * @Assert\NotBlank(message="Veuillez donner un titre à votre document")
      */
     private $title;
 
@@ -33,9 +34,9 @@ class Files
      * @Assert\File(
      *     maxSize = "2M",
      *     uploadFormSizeErrorMessage = "Fichier trop lourd (max 2Mo)",
-     *     uploadNoFileErrorMessage = "Veuillez charger un fichier"
+     *     uploadNoFileErrorMessage = "Veuillez charger un fichier",
      *     mimeTypes = {"image/jpeg","image/png","application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Veuiller charger un fichier au format pdf, jpeg ou png"
+     *     mimeTypesMessage = "Veuiller charger un fichier au format pdf, jpeg ou png",
      * )
      */
     private $upload;
@@ -59,7 +60,7 @@ class Files
     private $label;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User" inversedBy:"files")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
