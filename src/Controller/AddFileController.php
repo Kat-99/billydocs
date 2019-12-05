@@ -36,6 +36,9 @@ class AddFileController extends AbstractController
             ->add('docdate', DateType::class, [
                 'required' => true,
                 'label' => 'Date du',
+                'attr' => [
+                    'placeholder' => 'JJ/MM/AAAA'
+                ]
             ])
 
             //label input
@@ -43,7 +46,7 @@ class AddFileController extends AbstractController
                 'required' => true,
                 'label' => 'Label',
                 'attr' => [
-                    'placeholder' => 'ex: Electricité, Eau, Médecin...'
+                    'placeholder' => 'ex: électricité, eau, médecin...'
                 ]
             ])
 
@@ -75,7 +78,7 @@ class AddFileController extends AbstractController
 
             if ($docFile) {
                 $newFileName = $this->slugify($file->getTitle()) . '-' . uniqid().'.'.$docFile->guessExtension();
-                //Laisser à symphony gérer le type de l'image, jpeg, png etc...
+                // Laisser à symphony gérer le type de l'image, jpeg, png etc...
 
                 // Move the file to the directory where brochures are stored
                 try {
@@ -87,8 +90,7 @@ class AddFileController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
+                // Store the file name instead of its contents
                 $file->setFileName($newFileName);
             }
 
