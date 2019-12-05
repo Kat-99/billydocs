@@ -5,11 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -53,14 +55,31 @@ class User
     private $password;
 
     /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $roles = [];
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Files", mappedBy="user")
-     * @Assert\NotBlank(message="Veuillez charger un fichier")
      */
     private $files;
 
     public function __construct()
     {
         $this->files = new ArrayCollection();
+        $this->inscription_date = new \DateTime();
+    }
+
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(?array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 
     public function getId(): ?int
@@ -138,6 +157,30 @@ class User
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        return null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+
     }
 
     /**

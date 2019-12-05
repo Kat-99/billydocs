@@ -53,8 +53,7 @@ class Files
     private $label;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User" inversedBy:"files")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
      */
     private $user;
 

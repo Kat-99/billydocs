@@ -47,7 +47,7 @@ class AddFileController extends AbstractController
                 ]
             ])
 
-            //Upload
+            //upload
             ->add('filename', FileType::class, [
                 'required' => true,
                 'label' => 'Fichier',
@@ -80,7 +80,7 @@ class AddFileController extends AbstractController
                 // Move the file to the directory where brochures are stored
                 try {
                     $docFile->move(
-                        $this->getParameter('articles_directory'),
+                        $this->getParameter('files_directory'),
                         $newFileName
                     );
                 } catch (FileException $e) {
@@ -89,32 +89,23 @@ class AddFileController extends AbstractController
 
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
-                $article->setImage($newFilename);
+                $file->setFileName($newFileName);
             }
-
-            # Génération de l'alias de l'article
-            $article->setAlias( $this->slugify($article->getTitle()));
 
             # Sauvegarde en BDD
             $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
+            $em->persist($file);
             $em->flush();
 
             # Notification
-            $this->addFlash('notice', 'Félicitations votre article est en ligne !');
-
-            # Redirection
-            return $this->redirectToRoute('default_article', [
-                'categorie' => $article->getCategory()->getAlias(),
-                'alias' => $article->getAlias(),
-                'id' => $article->getId()
-            ]);
+            $this->addFlash('notice', 'Fichier ajouté');
 
         }
 
-
-
-
+        # Transmission du Formulaire à la vue
+        return $this->render('form/form.html.twig', [
+            'form' => $form->createView()
+        ]);
 
     }
 }
