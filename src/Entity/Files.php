@@ -17,14 +17,19 @@ class Files
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $title;
 
-    /**
-     * @ORM\Column(type="string", length=50)
+    /*
+     * @ORM\Column(type="string", length=255)
      */
-    private $format;
+    private $filename;
+
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $format = [];
 
     /**
      * @ORM\Column(type="float")
@@ -37,9 +42,20 @@ class Files
     private $added_date;
 
     /**
+     * @ORM\Column(type="date")
+     */
+    private $docdate;
+
+
+    /**
      * @ORM\Column(type="string", length=80)
      */
     private $label;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -54,6 +70,18 @@ class Files
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->filename;
+    }
+
+    public function setFileName(string $filename): self
+    {
+        $this->filename = $filename;
 
         return $this;
     }
@@ -94,6 +122,19 @@ class Files
         return $this;
     }
 
+    public function getDocDate(): ?\DateTimeInterface
+    {
+        return $this->docdate;
+    }
+
+    public function setDocDate(\DateTimeInterface $docdate): self
+    {
+        $this->docdate = $docdate;
+
+        return $this;
+    }
+
+
     public function getLabel(): ?string
     {
         return $this->label;
@@ -102,6 +143,18 @@ class Files
     public function setLabel(string $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

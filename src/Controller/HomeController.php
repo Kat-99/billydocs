@@ -14,7 +14,7 @@ class HomeController extends AbstractController
     {
         return $this->json([
             'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/HomeController.php',
+            'path' => 'src/Controller/HomeController.php'
         ]);
     }
 }
