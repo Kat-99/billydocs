@@ -385,8 +385,8 @@ a:active {
 }
 
 #boutonformule:hover {
-    color: dodgerblue;
-    border-color: cornflowerblue;
+    color: #a676ff;
+    border-color: #8362ff;
 }
 
 #boutondeconnexion {
@@ -643,10 +643,28 @@ a:hover {
 
 #mininav {
     padding-top: 50px;
+    border-color: skyblue;
 }
 
+#search {
+    padding-top: 25px;
+}
 
+#boutonrecherche {
+    border-color: skyblue;
+    color: skyblue;
+    background-color: white;
+}
 
+#boutonrecherche:hover {
+    color: #a676ff;
+    border-color: #8362ff;
+}
+
+#usericon {
+padding-left: 125px;
+    color: rebeccapurple;
+}
 
 
 
