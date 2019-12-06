@@ -666,6 +666,25 @@ padding-left: 125px;
     color: rebeccapurple;
 }
 
+#contact {
+    padding-top: 150px;
+}
+
+#contacttitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#boutonmsg {
+    border-color: skyblue;
+    color: skyblue;
+    background-color: white;
+}
+
+#boutonmsg:hover {
+    color: #a676ff;
+    border-color: #8362ff;
+}
 
 
 
