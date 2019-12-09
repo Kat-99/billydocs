@@ -6,11 +6,7 @@ namespace App\Controller;
 use App\Entity\Files;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-<<<<<<< Updated upstream
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-=======
 use Symfony\Component\Form\Extension\Core\Type\FileType;
->>>>>>> Stashed changes
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

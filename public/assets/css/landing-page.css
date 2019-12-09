@@ -155,13 +155,8 @@ a:active {
 /*------------footer-----------*/
 
 .footer {
-<<<<<<< Updated upstream
-    background-color: #114952;
-    line-height: 20px;
-=======
     background-color: #3985cc;
     padding-bottom:10%;
->>>>>>> Stashed changes
 }
 
 .footer nav > ul {
