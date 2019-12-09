@@ -11,34 +11,24 @@
 {#                    <p class="">Changer mon nom</p>#}
 {#                </a>#}
 {#            </li>#}
-                <h2 class="titremonprofil"> Mon Profil </h2>
-                <li class="active">
-                    <a href="#" class="switch">
-{#                       {{ form_start(form) }} {{ form_end(form) }}#}
-                        {{ render(controller('App\\Controller\\UserController::profil')) }}
 
+            <h4> Mes parametres</h4>
 
-                    </a>
-                </li>
-            <h2 class="titremonprofil"> Mon mot de passe </h2>
-            <li class="active">
-                <a href="#" class="switch">
-                    {#                       {{ form_start(form) }} {{ form_end(form) }}#}
-                    {{ render(controller('App\\Controller\\PasswordUpdateController::updatePassword')) }}
-                </a>
-            </li>
-
-{#            <li class="active">#}
-{#                <a href="#" class="switch">#}
-{#                    <p class="">Changer mon adresse email</p>#}
-{#                </a>#}
-{#            </li>#}
             <li class="">
-                <a href="#formules" class="switch">
-                    <button id="boutonformule" type="button" class="btn btn-outline-primary">Voir les formules €
+                <a href="http://localhost:8000/profil" class="switch">
+                    <button id="boutonformule" type="button" class="btn btn-outline-primary">Modifier mon profil
                     </button>
                 </a>
             </li>
+
+            <li class="">
+                <a href="http://localhost:8000/update_mdp" class="switch">
+                    <button id="boutonformule" type="button" class="btn btn-outline-primary">Modifier mon mot de passe
+                    </button>
+                </a>
+            </li>
+
+
         </ul>
     </div>
 </div> <!--/PARAMETRE-->

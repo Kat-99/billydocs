@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements  UserInterface
+class User
 {
     /**
      * @ORM\Id()
@@ -49,9 +49,6 @@ class User implements  UserInterface
      */
     private $last_logged_date;
 
-
-
-
     /**
      * @ORM\Column(type="array", nullable=true)
      */
@@ -63,7 +60,7 @@ class User implements  UserInterface
     private $files;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\PasswordUpdate", cascade={"persist", "remove"})
+     * @ORM\Column(type="string", length=8)
      */
     private $password;
 
@@ -209,16 +206,17 @@ class User implements  UserInterface
         return $this;
     }
 
-    public function getPassword(): ?PasswordUpdate
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(?PasswordUpdate $password): self
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
         return $this;
     }
+
 
 }

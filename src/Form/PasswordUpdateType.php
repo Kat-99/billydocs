@@ -20,22 +20,22 @@ class PasswordUpdateType extends ApplicationType
             ->add('oldPassword', PasswordType::class ,
                 $this->getConfiguration("Ancien mot de passe",
                     "Votre mot de passe actuel"))
-            ->add('newpassword', PasswordType::class ,  $this->getConfiguration(
+            ->add('newPassword', PasswordType::class ,  $this->getConfiguration(
               "nouveau mot de passe" , "taper votre nouveau mot de passe"
             ) )
-            ->add('confirmpassword', PasswordType::class , $this->getConfiguration(
+            ->add('confirmPassword', PasswordType::class , $this->getConfiguration(
              "confirmer votre mot de passe" ,  "confirmer votre mot de passe"
             ))
 
             ->add('save', submitType::class,[
-                'label'  => 'Enregistrer les modifications'])
+                'label'  => 'Enregistrer les modifications du mot de passe'])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => PasswordUpdate::class,
+//            'data_class' => PasswordUpdate::class,
         ]);
     }
 }

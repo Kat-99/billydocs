@@ -118,10 +118,10 @@ class UserController extends AbstractController
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
 
-//    /**
-//     * @Route ("/", name="")
-//     * @return Response
-//     */
+     /**
+     * @Route ("/profil", name="profil")
+     * @return Response
+     */
 
     public function profil()
     {
@@ -129,7 +129,7 @@ class UserController extends AbstractController
 
         $form = $this->createForm(ProfilType::class, $user);
 
-       return $this->render('les2formulaires/form1.html.twig' , [
+       return $this->render('filesparametres/profil.html.twig' , [
                     'form'=>$form->createView()
        ]);
     }
