@@ -455,7 +455,7 @@ a:active {
         top: 80px;
         right: 0px;
     }
-}
+
 @media (min-width: 768px) {
     .navbar-form {
         margin-top: 21px;

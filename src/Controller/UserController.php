@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ProfilType;
+use App\Form\PasswordUpdateType;
+use App\Entity\PasswordUpdate;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -114,6 +117,24 @@ class UserController extends AbstractController
     {
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
+
+//    /**
+//     * @Route ("/", name="")
+//     * @return Response
+//     */
+
+    public function profil()
+    {
+        $user = $this->getUser();
+
+        $form = $this->createForm(ProfilType::class, $user);
+
+       return $this->render('les2formulaires/form1.html.twig' , [
+                    'form'=>$form->createView()
+       ]);
+    }
+
+
 
 
 }

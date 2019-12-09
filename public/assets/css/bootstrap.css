@@ -292,6 +292,7 @@ th {
 .glyphicon-eur:before {
   content: "\20ac";
 }
+
 .glyphicon-minus:before {
   content: "\2212";
 }
@@ -3254,6 +3255,35 @@ tbody.collapse.in {
   overflow: hidden;
   background-color: #e5e5e5;
 }
+.dropdown-menu  .titremonprofil {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem!important;
+  padding-left: 3rem;
+  padding-top: 0px;
+}
+
+.dropdown-menu  .form-control {
+
+  margin-top: 0px;
+}
+
+.dropdown-menu form{
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.dropdown-menu .form label {
+  margin-top: 0px;
+
+  color: black;
+  display: block;
+}
+
+
+
 .dropdown-menu > li > a {
   display: block;
   padding: 3px 20px;

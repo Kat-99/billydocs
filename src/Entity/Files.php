@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FilesRepository")
@@ -18,23 +19,27 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Veuillez donner un titre à votre document")
      */
     private $title;
 
     /*
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $filename;
 
     /**
-     * @ORM\Column(type="array")
-     */
-    private $format = [];
-
-    /**
      * @ORM\Column(type="float")
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     uploadFormSizeErrorMessage = "Fichier trop lourd (max 2Mo)",
+     *     uploadNoFileErrorMessage = "Veuillez charger un fichier",
+     *     mimeTypes = {"image/jpeg","image/png","application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Veuiller charger un fichier au format pdf, jpeg ou png",
+     * )
      */
-    private $size;
+    private $upload;
 
     /**
      * @ORM\Column(type="datetime")
@@ -43,17 +48,20 @@ class Files
 
     /**
      * @ORM\Column(type="date")
+     * @var string A "d/m/Y" formatted value
      */
     private $docdate;
 
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank(message="Veuillez attribuer un label à votre document")
      */
     private $label;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
@@ -86,26 +94,14 @@ class Files
         return $this;
     }
 
-    public function getFormat(): ?array
+    public function getUpload(): ?float
     {
-        return $this->format;
+        return $this->upload;
     }
 
-    public function setFormat(array $format): self
+    public function setUpload(float $upload): self
     {
-        $this->format = $format;
-
-        return $this;
-    }
-
-    public function getSize(): ?float
-    {
-        return $this->size;
-    }
-
-    public function setSize(float $size): self
-    {
-        $this->size = $size;
+        $this->upload = $upload;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface
+class User implements  UserInterface
 {
     /**
      * @ORM\Id()
@@ -45,16 +45,12 @@ class User implements UserInterface
     private $inscription_date;
 
     /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $last_logged_date;
 
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez entrer un mot de passe")
-     */
-    private $password;
+
 
     /**
      * @ORM\Column(type="array", nullable=true)
@@ -65,6 +61,13 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Files", mappedBy="user")
      */
     private $files;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\PasswordUpdate", cascade={"persist", "remove"})
+     */
+    private $password;
+
+
 
     public function __construct()
     {
@@ -150,17 +153,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
 
     /**
      * @inheritDoc
@@ -216,4 +208,17 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getPassword(): ?PasswordUpdate
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?PasswordUpdate $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
 }
