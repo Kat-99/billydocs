@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {% extends 'base.html.twig' %}
 
 
@@ -15,10 +16,12 @@
     <div class="modal-dialog cascading-modal" role="document">
         <!--Content-->
         <div class="modal-content">
+=======
+{% extends "base.html.twig" %}
+>>>>>>> Stashed changes
 
-            <!--Modal cascading tabs-->
-            <div class="modal-c-tabs">
 
+<<<<<<< Updated upstream
                 <!-- Nav tabs -->
                 <div class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" id="addbar" role="tablist">
                     <h3>
@@ -47,11 +50,22 @@
                         <!--Footer-->
                     </div>
                     <!--/.Panel 7-->
+=======
+{% block formulaire %}
+    <div class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" id="addbar" role="tablist">
+        <div class="container">
+            <a href="http://localhost:8000/" class="btn btn-success" id="retour">Retour</a>
+            <h2 id="titleadd">Ajouter un fichier</h2>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 p-4" id="formdiv">
+                    {{ form(form) }}
+>>>>>>> Stashed changes
                 </div>
+
             </div>
         </div>
-        <!--/.Content-->
     </div>
+<<<<<<< Updated upstream
 </div>
 <!--Modal: Login / Register Form-->
 
@@ -76,3 +90,6 @@
         });
     </script>
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> Stashed changes

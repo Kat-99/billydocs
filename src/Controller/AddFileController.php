@@ -6,13 +6,20 @@ namespace App\Controller;
 use App\Entity\Files;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+<<<<<<< Updated upstream
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+=======
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+>>>>>>> Stashed changes
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 class AddFileController extends AbstractController
 {
-
+    /**
+     * @Route("/addfile", name="addfile")
+     */
     public function addFile(Request $request)
     {
         $file = new Files();
@@ -106,6 +113,5 @@ class AddFileController extends AbstractController
         return $this->render('form/form.html.twig', [
             'form' => $form->createView()
         ]);
-
     }
 }

@@ -1,0 +1,95 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+{% include 'components/_nav.html.twig' %}
+    <div class="section section-features">
+        <div class="container">
+            <h2 class="header-text text-center">Vos documents</h2>
+            {% include "components/sub-nav.html.twig" %}
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-blue">
+                        <div class="icon">
+                            <i class="pe-7s-portfolio"></i>
+                        </div>
+                        <div class="text">
+                            <p>Facture EDF 2017</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-blue">
+                        <div class="icon">
+                            <i class="pe-7s-portfolio"></i>
+                        </div>
+                        <p>Impôts 2017</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-blue">
+                        <div class="icon">
+                            <i class="pe-7s-portfolio"></i>
+                        </div>
+                        <p>CV Boulanger</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!--/CARDS DOCS-->
+
+
+    <!--CARDS FORMULES-->
+    <div class="section section-features">
+        <div class="container">
+            <h2 id="formules" class="header-text text-center">Formules</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-blue">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="pe-7s-magic-wand"></i>
+                            </div>
+                            <div class="text">
+                                <h3>Gratuit</h3>
+                                <h3>0€ <span>/mois</span></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto magnam, consequatur sint
+                                    officiis. Blanditiis numquam officia nobis id iure sed doloribus, adipisci, maiores
+                                    harum totam ratione ad nostrum ipsum iste?</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card card-blue">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="pe-7s-pendrive"></i>
+                            </div>
+                            <h3>Plus</h3>
+                            <h3>5.50€ <span>/mois</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione tempora vero nemo placeat
+                                fuga, vitae pariatur dolorum ab! Doloribus qui autem fugiat voluptate tempore, eaque
+                                perferendis quibusdam tempora, quis arc</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card card-blue">
+                        <a href="#">
+                            <div class="icon">
+                                <i class="pe-7s-server"></i>
+                            </div>
+                            <h3>Pro</h3>
+                            <h3>15.90€ <span>/mois</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae in libero voluptatibus ut,
+                                eaque provident blanditiis aut impedit modi quos laboriosam repellat iste quia tenetur
+                                sapiente. Quasi expedita, exercitationem a!</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!--/CARDS FORMULES-->
+{% endblock %}
