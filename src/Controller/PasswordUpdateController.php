@@ -17,47 +17,55 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class PasswordUpdateController extends AbstractController
 {
 
-    /**
-//   * @Route ("/pass", name="modif")
-     * @param Request $request
-     * @param ObjectManager $manager
-     * @param UserPasswordEncoderInterface $encoder
-     * @return Response
-     */
-
-    public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder, AbstractController $manager )
+    public function updatePassword()
     {
         $passwordUpdate = new PasswordUpdate();
 
         $user = $this->getUser();
+        $form = $this->createForm(PasswordUpdateType::class, $passwordUpdate, [
+            'action' => $this->generateUrl('handle_pwd_update')
+        ]);
 
-        $form = $this->createForm(PasswordUpdateType::class , $passwordUpdate );
-
-        $form-> handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-            // verification old password
-            if(!password_verify($passwordUpdate -> getOldPassword() , $user->getPassword())){
-                $this->addFlash(
-                    'danger',
-                    "Il y a une erreur dans votre saisie"
-                );
-
-            }else{  $newPassword = $passwordUpdate ->getNewPassword();
-                    $password = $encoder-> encodePassword($user, $newPassword );
-
-                    $user->setPassword($password);
-                    $manager->persist($user);
-                    $manager->flush();
-
-                    $this->addFlash(
-                        'success',
-                        "votre mot de passe a été modifié"
-                    );
-        }}
+//        FIXME dans une autre page de traitement
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            // verification old password
+//            if (!password_verify($passwordUpdate->getOldPassword(), $user->getPassword())) {
+//                $this->addFlash(
+//                    'danger',
+//                    "Il y a une erreur dans votre saisie"
+//                );
+//            } else {
+//
+//                $newPassword = $passwordUpdate->getNewPassword();
+//                $password = $encoder->encodePassword($user, $newPassword);
+//                $user->setPassword($password);
+//
+//                $manager = $this->getDoctrine()->getManager();
+//                $manager->persist($user);
+//                $manager->flush();
+//
+//                $this->addFlash(
+//                    'success',
+//                    "votre mot de passe a été modifié"
+//                );
+//            }
+//        }
 
         return $this->render('les2formulaires/form2.html.twig', [
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/password/update", name="handle_pwd_update", methods={"POST"})
+     * @param Request $request
+     */
+    public function handlePasswordUpdate(Request $request)
+    {
+        dump($this->getUser());
+        dd($request->request->get('password_update'));
+
+        
+    }
+
 }
