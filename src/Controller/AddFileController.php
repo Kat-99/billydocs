@@ -8,6 +8,7 @@ use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,9 +21,7 @@ class AddFileController extends AbstractController
     {
         $file = new Files();
 
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findOneBy();
+        $user = $this->getUser();
 
         $file->setUser($user);
 
@@ -36,7 +35,7 @@ class AddFileController extends AbstractController
             ])
 
             //docdate input
-            ->add('docdate', DateType::class, [
+            ->add('docdate', TextType::class, [
                 'required' => true,
                 'label' => 'Date du',
             ])
