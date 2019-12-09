@@ -17,7 +17,7 @@ class DocController extends AbstractController
     {
         #Envoie du document
         $document = new Doc();
-        $document->setDoc('docCvBoulanger.doc');
+        $document->setDoc('CvAntoine.pdf');
 
         $em = $this->getDoctrine()->getManager();
 
