@@ -9,9 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 class AddFileController extends AbstractController
 {
     /**
@@ -35,9 +37,13 @@ class AddFileController extends AbstractController
             ])
 
             //docdate input
-            ->add('docdate', TextType::class, [
+            ->add('docdate', DateType::class, [
+                'widget' => 'single_text',
                 'required' => true,
                 'label' => 'Date du',
+                'attr' => [
+                    'placeholder' => 'JJ/MM/YYYY'
+                ]
             ])
 
             //label input

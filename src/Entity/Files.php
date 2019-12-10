@@ -18,6 +18,7 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Notblank(message="Veuiller entrer un titre")
      */
     private $title;
 
@@ -27,14 +28,16 @@ class Files
     private $filename;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     maxSizeMessage = "Votre fichier est trop lourd (maximum 2Mo)",
+     *     mimeTypes = {"image/jpeg","image/png", "application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Veuillez charger un fichier au format pdf, jpeg, ou png",
+     *     uploadNoFileErrorMessage = "Veuillez charger un fichier",
+     *     )
      */
-    private $format = [];
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $size;
+    private $upload;
 
     /**
      * @ORM\Column(type="datetime")
@@ -43,12 +46,14 @@ class Files
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="Veuillez choisir une date")
      */
     private $docdate;
 
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank(message="Veuillez attribuer un label à votre document"
      */
     private $label;
 
@@ -86,26 +91,14 @@ class Files
         return $this;
     }
 
-    public function getFormat(): ?array
+    public function getUpload(): ?string
     {
-        return $this->format;
+        return $this->upload;
     }
 
-    public function setFormat(array $format): self
+    public function setUpload(string $upload): self
     {
-        $this->format = $format;
-
-        return $this;
-    }
-
-    public function getSize(): ?float
-    {
-        return $this->size;
-    }
-
-    public function setSize(float $size): self
-    {
-        $this->size = $size;
+        $this->upload = $upload;
 
         return $this;
     }
