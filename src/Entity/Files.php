@@ -23,11 +23,6 @@ class Files
      */
     private $title;
 
-    /*
-     * @ORM\Column(type="string", length=255)
-     */
-    private $filename;
-
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\File(
@@ -38,7 +33,7 @@ class Files
      *     uploadNoFileErrorMessage = "Veuillez charger un fichier",
      *     )
      */
-    private $upload;
+    private $filename;
 
     /**
      * @ORM\Column(type="datetime")
@@ -60,8 +55,14 @@ class Files
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    public function __construct()
+    {
+        $this->added_date = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -92,18 +93,6 @@ class Files
         return $this;
     }
 
-    public function getUpload(): ?string
-    {
-        return $this->upload;
-    }
-
-    public function setUpload(string $upload): self
-    {
-        $this->upload = $upload;
-
-        return $this;
-    }
-
     public function getAddedDate(): ?\DateTimeInterface
     {
         return $this->added_date;
@@ -127,7 +116,6 @@ class Files
 
         return $this;
     }
-
 
     public function getLabel(): ?string
     {
