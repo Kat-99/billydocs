@@ -35,7 +35,7 @@ a,
 td {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Helvetica Neue", "Open Sans", Arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 h1,
@@ -97,12 +97,12 @@ body {
 }
 
 a {
-    color: #2ca8ff;
+    color: #48d6ff !important;
 }
 
 a:hover,
 a:focus {
-    color: #109cff;
+    color: #337aff;
     text-decoration: none;
 }
 
@@ -156,7 +156,7 @@ a:active {
 
 .footer {
     background-color: #3985cc;
-    padding-bottom:10%;
+    line-height: 20px;
 }
 
 .footer nav > ul {
@@ -385,8 +385,8 @@ a:active {
 }
 
 #boutonformule:hover {
-    color: dodgerblue;
-    border-color: cornflowerblue;
+    color: #a676ff;
+    border-color: #8362ff;
 }
 
 #boutondeconnexion {
@@ -397,14 +397,10 @@ a:active {
 }
 
 #boutondeconnexion:hover {
-    color: dodgerblue;
-    border-color: cornflowerblue;
+    color: #a676ff;
+    border-color: #8362ff;
 }
 
-.fixed-plugin .dropdown-menu > li > a.switch-trigger:hover,
-.fixed-plugin .dropdown-menu > li > a.switch-trigger:focus {
-    background-color: transparent;
-}
 
 .fixed-plugin .dropdown-menu > .active > a:not(.switch-trigger),
 .fixed-plugin .dropdown-menu > .active > a:not(.switch-trigger) {
@@ -456,6 +452,7 @@ a:active {
         right: 0px;
     }
 }
+
 @media (min-width: 768px) {
     .navbar-form {
         margin-top: 21px;
@@ -463,6 +460,7 @@ a:active {
         padding-left: 5px;
         padding-right: 5px;
     }
+
 
     .navbar-nav > li > .dropdown-menu,
     .dropdown-menu {
@@ -554,10 +552,11 @@ a:active {
     .fixed-plugin {
         position: absolute;
     }
+}
 
     .fixed-plugin .dropdown-menu {
         top: 0;
-        width: 220px;
+        width: 320px;
     }
 
     .nav > li {
@@ -581,7 +580,7 @@ a:active {
     }
 
     .landing-page .navbar-top {
-        background: rgba(0, 0, 0, 0.75);
+        background-color: #9ce0ff;
     }
 
     .landing-page .parallax {
@@ -631,10 +630,69 @@ a:active {
     .pull-right {
         float: none !important;
     }
+
+
+    @media (min-width: 768px) {
+        .landing-page .navbar-top {
+            padding-top: 10px;
+        }
+    }
+
+a:hover {
+    color: #a676ff !important;
 }
 
-@media (min-width: 768px) {
-    .landing-page .navbar-top {
-        padding-top: 10px;
-    }
+#mininav {
+    padding-top: 50px;
+    border-color: skyblue;
 }
+
+#search {
+    padding-top: 25px;
+}
+
+#boutonrecherche {
+    border-color: skyblue;
+    color: skyblue;
+    background-color: white;
+}
+
+#boutonrecherche:hover {
+    color: #a676ff;
+    border-color: #8362ff;
+}
+
+#usericon {
+padding-left: 125px;
+    color: rebeccapurple;
+}
+
+#contact {
+    padding-top: 150px;
+}
+
+#contacttitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#boutonmsg {
+    border-color: skyblue;
+    color: skyblue;
+    background-color: white;
+}
+
+#boutonmsg:hover {
+    color: #a676ff;
+    border-color: #8362ff;
+}
+
+
+
+
+
+
+
+
+
+
