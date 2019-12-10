@@ -16,8 +16,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 class AddFileController extends AbstractController
 {
+    use HelperTrait;
+
     /**
+     * @param Request $request
      * @Route("/addfile", name="addfile")
+     * @return Response
      */
     public function addFile(Request $request)
     {

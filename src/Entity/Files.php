@@ -19,7 +19,7 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\Notblank(message="Veuiller entrer un titre")
+     * @Assert\NotBlank(message="Veuiller entrer un titre")
      */
     private $title;
 
@@ -54,7 +54,7 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=80)
-     * @Assert\NotBlank(message="Veuillez attribuer un label à votre document"
+     * @Assert\NotBlank(message="Veuillez attribuer un label à votre document")
      */
     private $label;
 
