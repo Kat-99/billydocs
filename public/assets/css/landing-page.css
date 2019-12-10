@@ -687,7 +687,19 @@ padding-left: 125px;
     border-color: #8362ff;
 }
 
-#add {float:left !important;}
+#add {
+    float:left !important;
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    background-color: #00a3e3;
+}
+
+#add:hover {
+    
+}
+
 
 
 
