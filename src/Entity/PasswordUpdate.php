@@ -3,14 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
-
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PasswordUpdateRepository")
  */
-class PasswordUpdate implements UserInterface
+class PasswordUpdate
 {
     /**
      * @ORM\Id()
@@ -20,22 +17,17 @@ class PasswordUpdate implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=8, nullable=true)
-     * @Assert\Length(min=8, minMessage="Votre mot de passe doit faire au moins 8 caracteres")
+     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
      */
     private $oldPassword;
 
     /**
-     * @ORM\Column(type="string", length=8, nullable=true)
-     *  @Assert\Length(min=8, minMessage="Votre mot de passe doit faire au moins 8 caracteres")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $newPassword;
 
     /**
-     *@Assert\EqualTo(propertyPath="newPassword", message="vous n'avez pas correctement confirmé votre mot de passe" )
-     * @Assert\Length(min=8, minMessage="Votre mot de passe doit faire au moins 8 caracteres")
-     * @ORM\Column(type="string", length=8, nullable=true)
-     *
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $confirmPassword;
 
@@ -44,12 +36,12 @@ class PasswordUpdate implements UserInterface
         return $this->id;
     }
 
-    public function getOldPassword(): ?string
+    public function getOldPassword(): ?User
     {
         return $this->oldPassword;
     }
 
-    public function setOldPassword(?string $oldPassword): self
+    public function setOldPassword(?User $oldPassword): self
     {
         $this->oldPassword = $oldPassword;
 
@@ -78,71 +70,5 @@ class PasswordUpdate implements UserInterface
         $this->confirmPassword = $confirmPassword;
 
         return $this;
-    }
-
-
-    /**
-     * Returns the roles granted to the user.
-     *
-     *     public function getRoles()
-     *     {
-     *         return ['ROLE_USER'];
-     *     }
-     *
-     * Alternatively, the roles might be stored on a ``roles`` property,
-     * and populated in any number of different ways when the user object
-     * is created.
-     *
-     * @return string[] The user roles
-     */
-    public function getRoles()
-    {
-        // TODO: Implement getRoles() method.
-    }
-
-    /**
-     * Returns the password used to authenticate the user.
-     *
-     * This should be the encoded password. On authentication, a plain-text
-     * password will be salted, encoded, and then compared to this value.
-     *
-     * @return string|null The encoded password if any
-     */
-    public function getPassword()
-    {
-        // TODO: Implement getPassword() method.
-    }
-
-    /**
-     * Returns the salt that was originally used to encode the password.
-     *
-     * This can return null if the password was not encoded using a salt.
-     *
-     * @return string|null The salt
-     */
-    public function getSalt()
-    {
-        // TODO: Implement getSalt() method.
-    }
-
-    /**
-     * Returns the username used to authenticate the user.
-     *
-     * @return string The username
-     */
-    public function getUsername()
-    {
-        // TODO: Implement getUsername() method.
-    }
-
-    /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
-     */
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
     }
 }

@@ -17,11 +17,14 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class PasswordUpdateController extends AbstractController
 {
 
-     /**
-     * @Route("/update_mdp", name="update_mdp", methods={"GET|POST"})
-     *
+    /**
+     * @Route("/updatemdp", name="updatemdp", methods={"GET|POST"})
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $encoder
+     * @return Response
      */
-    public function updatePassword()
+    public function updatePassword(Request $request,
+                                   UserPasswordEncoderInterface $encoder)
     {
 
 
@@ -30,9 +33,9 @@ class PasswordUpdateController extends AbstractController
         $user = $this->getUser();
 
         $form = $this->createForm(PasswordUpdateType::class , $passwordUpdate );
-//
-        $form-> handleRequest($request);
 
+        $form-> handleRequest(  $request);
+//dd($form);
         if($form->isSubmitted() && $form->isValid()){
             // verification old password
             if(!password_verify($passwordUpdate -> getOldPassword() , $user->getPassword())){
@@ -55,7 +58,7 @@ class PasswordUpdateController extends AbstractController
                 );
             }}
 
-        return $this->render('filesparametres/form2.html.twig', [
+        return $this->render('filesparametres/updatemdp.twig', [
             'form' => $form->createView()
         ]);
     }
@@ -73,7 +76,7 @@ class PasswordUpdateController extends AbstractController
 //            'action' => $this->generateUrl('handle_pwd_update')
 //        ]);
 //***************
-//        FIXME dans une autre page de traitement
+//
 //        if ($form->isSubmitted() && $form->isValid()) {
 //            // verification old password
 //            if (!password_verify($passwordUpdate->getOldPassword(), $user->getPassword())) {
@@ -98,7 +101,7 @@ class PasswordUpdateController extends AbstractController
 //            }
 //        }
 //**************
-//        return $this->render('filesparametres/form2.html.twig', [
+//        return $this->render('filesparametres/updatemdp.twig', [
 //            'form' => $form->createView()
 //        ]);
 //    }
