@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -34,13 +34,12 @@ class User
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank(message="Vous avez oublié votre email.")
-     *  @Assert\Email(message="Veuillez vérifier le format.")
+     * @Assert\NotBlank(message="Veuillez entrer votre email")
      */
     private $email;
 
     /**
-     * @ORM\Column(type="date",nullable=false)
+     * @ORM\Column(type="date")
      */
     private $inscription_date;
 
@@ -48,6 +47,12 @@ class User
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $last_logged_date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez entrer un mot de passe")
+     */
+    private $password;
 
     /**
      * @ORM\Column(type="array", nullable=true)
@@ -58,13 +63,6 @@ class User
      * @ORM\OneToMany(targetEntity="App\Entity\Files", mappedBy="user")
      */
     private $files;
-
-    /**
-     * @ORM\Column(type="string", length=8)
-     */
-    private $password;
-
-
 
     public function __construct()
     {
@@ -118,7 +116,6 @@ class User
         return $this->email;
     }
 
-
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -150,6 +147,17 @@ class User
         return $this;
     }
 
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
 
     /**
      * @inheritDoc
@@ -205,18 +213,4 @@ class User
 
         return $this;
     }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-
 }

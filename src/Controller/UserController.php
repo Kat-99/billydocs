@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\ProfilType;
 use App\Form\PasswordUpdateType;
 use App\Entity\PasswordUpdate;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -118,23 +119,26 @@ class UserController extends AbstractController
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
 
-     /**
+    /**
      * @Route ("/profil", name="profil")
      * @return Response
      */
 
-    public function profil()
+    public function profil( Request $request)
     {
         $user = $this->getUser();
 
         $form = $this->createForm(ProfilType::class, $user);
+        $form-> handleRequest($request);
 
-       return $this->render('filesparametres/profil.html.twig' , [
-                    'form'=>$form->createView()
-       ]);
+        if($form->isSubmitted() && $form->isValid()){
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($user);
+            $manager->flush();
+        }
+
+        return $this->render('filesparametres/profil.html.twig',[
+            'form'=>$form->createView()
+        ]);
     }
-
-
-
-
 }
