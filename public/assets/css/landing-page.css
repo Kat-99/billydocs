@@ -689,11 +689,21 @@ padding-left: 125px;
 
 #add {
     float:left !important;
-    margin-right: 0px;
+    margin-right: 0 !important;
     border-radius: 4px 4px 0 0;
     background-color: #00a3e3;
 }
 
+#add > a {
+    margin-right: 0 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+#add > a:hover {
+    margin-right:0px !important;
+    border-color: #00a3e3;
+}
 
 
 
