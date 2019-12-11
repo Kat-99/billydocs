@@ -6376,6 +6376,40 @@ button.close {
   display: inline-block;
 }
 
-#blocaccueil #image{
-  width: 500px;
+#blocaccueil #image {
+  width: 600px !important;
+  position: relative!important;
+  top: 100px !important;
+  right: 50px !important;
+}
+
+#blocinscription button {
+  background-color: #ffffff !important;
+  border-color: #a676ff !important;
+  color: #a676ff !important;
+}
+
+#blocinscription form {
+  display: block;
+  margin-top: 3em;
+}
+
+
+
+#blocinscription button  {
+  display: block;
+  width: 100%;
+}
+
+#blocinscription #buttonconnexion {
+  margin-top: 40px;
+}
+
+
+#blocinscription #buttonconnexion:hover {
+  background-color: #00a3e3 !important;
+}
+
+#blocinscription #buttonconnexion a {
+  background-color: white !important;
 }
