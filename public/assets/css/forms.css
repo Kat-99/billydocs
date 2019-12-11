@@ -19,6 +19,8 @@
     color:#a676ff !important;
 }
 
+#form :nth-child(5n){ text-align:center !important;}
+
 #form_submit:hover{
     background-color:#00a3e3 !important;
     border-color: #00a3e3 !important;
