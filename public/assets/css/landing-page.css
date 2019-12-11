@@ -1,19 +1,40 @@
-/*!
+Skip to content
+Search or jump to…
 
- =========================================================
- * Awesome Landing Page - v1.2.2
- =========================================================
- 
- * Product Page: https://www.creative-tim.com/product/awesome-landing-page
- * Copyright 2017 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
- 
- =========================================================
- 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- */
+Pull requests
+Issues
+Marketplace
+Explore
 
-/*           Font Smoothing      */
+@nabajothaurelie
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+2
+00Kat-99/billydocs
+Code Issues 0 Pull requests 1 Actions Projects 0 Wiki Security Insights
+billydocs/public/assets/css/landing-page.css
+@Kat-99 Kat-99 Ajustement du #add
+1174334 7 hours ago
+@Kat-99@nabajothaurelie
+715 lines (572 sloc)  12.4 KB
+
+    /*!
+     =========================================================
+     * Awesome Landing Page - v1.2.2
+     =========================================================
+
+     * Product Page: https://www.creative-tim.com/product/awesome-landing-page
+     * Copyright 2017 Creative Tim (http://www.creative-tim.com)
+     * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
+
+     =========================================================
+
+     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+     */
+
+    /*           Font Smoothing      */
 h1,
 .h1,
 h2,
@@ -35,7 +56,7 @@ a,
 td {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Helvetica Neue", "Open Sans", Arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 h1,
@@ -97,12 +118,12 @@ body {
 }
 
 a {
-    color: #2ca8ff;
+    color: #48d6ff !important;
 }
 
 a:hover,
 a:focus {
-    color: #109cff;
+    color: #337aff;
     text-decoration: none;
 }
 
@@ -155,7 +176,7 @@ a:active {
 /*------------footer-----------*/
 
 .footer {
-    background-color: #114952;
+    background-color: #3985cc;
     line-height: 20px;
 }
 
@@ -280,7 +301,7 @@ a:active {
 .landing-page .section-features .card.card-blue {
     border-color: #CCE7F5;
     background-color: #f5f9ff;
-    
+
 }
 
 .landing-page .section-features .card.card-blue .icon i {
@@ -385,26 +406,22 @@ a:active {
 }
 
 #boutonformule:hover {
-    color: dodgerblue;
-    border-color: cornflowerblue;
+    color: #a676ff;
+    border-color: #8362ff;
 }
 
 #boutondeconnexion {
     border-color: skyblue;
     color: skyblue;
     background-color: white;
-    
+
 }
 
 #boutondeconnexion:hover {
-    color: dodgerblue;
-    border-color: cornflowerblue;
+    color: #a676ff;
+    border-color: #8362ff;
 }
 
-.fixed-plugin .dropdown-menu > li > a.switch-trigger:hover,
-.fixed-plugin .dropdown-menu > li > a.switch-trigger:focus {
-    background-color: transparent;
-}
 
 .fixed-plugin .dropdown-menu > .active > a:not(.switch-trigger),
 .fixed-plugin .dropdown-menu > .active > a:not(.switch-trigger) {
@@ -455,6 +472,7 @@ a:active {
         top: 80px;
         right: 0px;
     }
+}
 
 @media (min-width: 768px) {
     .navbar-form {
@@ -463,6 +481,7 @@ a:active {
         padding-left: 5px;
         padding-right: 5px;
     }
+
 
     .navbar-nav > li > .dropdown-menu,
     .dropdown-menu {
@@ -554,87 +573,176 @@ a:active {
     .fixed-plugin {
         position: absolute;
     }
-
-    .fixed-plugin .dropdown-menu {
-        top: 0;
-        width: 220px;
-    }
-
-    .nav > li {
-        text-align: center;
-    }
-
-    .navbar-toggle .icon-bar {
-        background: white;
-    }
-
-    .navbar-toggle {
-        padding: 16px 10px;
-    }
-
-    .logo-container .logo {
-        margin-left: 20px;
-    }
-
-    .landing-page .wrapper {
-        text-align: center;
-    }
-
-    .landing-page .navbar-top {
-        background: rgba(0, 0, 0, 0.75);
-    }
-
-    .landing-page .parallax {
-        height: 550px;
-    }
-
-    .landing-page .parallax .parallax-background img {
-        width: auto;
-        height: 100%;
-    }
-
-    .landing-page .parallax .description {
-        margin-top: 65px;
-    }
-
-    .landing-page .parallax .buttons {
-        margin: 20px 0;
-    }
-
-    .landing-page .logos li {
-        display: block;
-        margin-top: 10px;
-    }
-
-    .landing-page .logos ul {
-        padding-top: 20px;
-    }
-
-    .landing-page .section-presentation {
-        margin: 0;
-    }
-
-    .landing-page .section-presentation {
-        height: auto;
-    }
-
-    .landing-page .carousel-indicators {
-        bottom: -30px;
-    }
-
-    .landing-page .carousel {
-        min-height: 210px;
-    }
-
-    .footer nav.pull-left,
-    .footer:not(.footer-big) nav > ul li,
-    .pull-right {
-        float: none !important;
-    }
 }
+
+.fixed-plugin .dropdown-menu {
+    top: 0;
+    width: 320px;
+}
+
+.nav > li {
+    text-align: center;
+}
+
+.navbar-toggle .icon-bar {
+    background: white;
+}
+
+.navbar-toggle {
+    padding: 16px 10px;
+}
+
+.logo-container .logo {
+    margin-left: 20px;
+}
+
+.landing-page .wrapper {
+    text-align: center;
+}
+
+.landing-page .navbar-top {
+    background-color: #9ce0ff;
+}
+
+.landing-page .parallax {
+    height: 550px;
+}
+
+.landing-page .parallax .parallax-background img {
+    width: auto;
+    height: 100%;
+}
+
+.landing-page .parallax .description {
+    margin-top: 65px;
+}
+
+.landing-page .parallax .buttons {
+    margin: 20px 0;
+}
+
+.landing-page .logos li {
+    display: block;
+    margin-top: 10px;
+}
+
+.landing-page .logos ul {
+    padding-top: 20px;
+}
+
+.landing-page .section-presentation {
+    margin: 0;
+}
+
+.landing-page .section-presentation {
+    height: auto;
+}
+
+.landing-page .carousel-indicators {
+    bottom: -30px;
+}
+
+.landing-page .carousel {
+    min-height: 210px;
+}
+
+.footer nav.pull-left,
+.footer:not(.footer-big) nav > ul li,
+.pull-right {
+    float: none !important;
+}
+
 
 @media (min-width: 768px) {
     .landing-page .navbar-top {
         padding-top: 10px;
     }
 }
+
+a:hover {
+    color: #a676ff !important;
+}
+
+#mininav {
+    padding-top: 50px;
+    border-color: skyblue;
+}
+
+#search {
+    padding-top: 25px;
+}
+
+#boutonrecherche {
+    border-color: skyblue;
+    color: skyblue;
+    background-color: white;
+}
+
+#boutonrecherche:hover {
+    color: #a676ff;
+    border-color: #8362ff;
+}
+
+#usericon {
+    padding-left: 125px;
+    color: rebeccapurple;
+}
+
+#contact {
+    padding-top: 150px;
+}
+
+#contacttitle {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#boutonmsg {
+    border-color: skyblue;
+    color: skyblue;
+    background-color: white;
+}
+
+#boutonmsg:hover {
+    color: #a676ff;
+    border-color: #8362ff;
+}
+
+#add {
+    float:left !important;
+    margin-right: 0 !important;
+    border-radius: 4px 4px 0 0;
+    background-color: #00a3e3;
+}
+
+#add > a {
+    margin-right: 0 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+#add > a:hover {
+    margin-right:0px !important;
+    border-color: #00a3e3;
+}
+
+
+
+
+
+
+
+
+
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

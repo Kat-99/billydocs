@@ -5,8 +5,9 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\ProfilType;
 use App\Form\PasswordUpdateType;
+use App\Form\ResetPasswordType;
 use App\Entity\PasswordUpdate;
-use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Form\FormError;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -17,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -121,6 +123,7 @@ class UserController extends AbstractController
 
     /**
      * @Route ("/profil", name="profil")
+     * @param Request $request
      * @return Response
      */
 
@@ -141,4 +144,53 @@ class UserController extends AbstractController
             'form'=>$form->createView()
         ]);
     }
+
+
+    /**
+     * @Route ("/updatemdp", name="updatemdp")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $encoder
+     * @return Response
+     */
+
+    public function updatemdp(Request $request , UserPasswordEncoderInterface $encoder)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+        $form = $this->createForm(ResetPasswordType::class, $user);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $passwordEncoder = $this->get('security.password_encoder');
+//            dump($request->request); die();
+            $oldPassword = $request->request->get('')['oldPassword'];
+
+            // Si l'ancien mot de passe est bon
+            if ($passwordEncoder->isPasswordValid($user, $oldPassword)) {
+                $newEncodedPassword = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+                $user->setPassword($newEncodedPassword);
+
+                $em->persist($user);
+                $em->flush();
+
+                $this->addFlash('notice', 'Votre mot de passe à bien été changé !');
+
+                return $this->redirectToRoute('/');
+            } else {
+                $form->addError(new FormError('Ancien mot de passe incorrect'));
+            }
+        }
+
+        return $this->render('filesparametres/updatemdp.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+
+
+
+
+
+
 }
