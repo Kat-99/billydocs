@@ -17,6 +17,11 @@ class Doc
     private $id;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $docDate;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $doc;
@@ -37,4 +42,29 @@ class Doc
 
         return $this;
     }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getDocDate(): ?\DateTimeInterface
+    {
+        return $this->docDate;
+    }
+
+    public function setDocDate (\DateTimeInterface $docDate): self
+    {
+        $this->docDate = $docDate;
+
+        return $this;
+    }
+
 }

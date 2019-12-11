@@ -18,10 +18,16 @@ class DocController extends AbstractController
         #Envoie du document
         $document = new Doc();
         $document->setDoc('CvAntoine.pdf');
+            
+
+        #Création d'une catégorie
+        $category = new Category();
+        $category->setLabel('CV');
 
         $em = $this->getDoctrine()->getManager();
 
         $em->persist($document);
+        $em->persist($category);
 
         $em->flush();
 
