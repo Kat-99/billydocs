@@ -575,10 +575,6 @@ a:active {
         margin-left: 20px;
     }
 
-    .landing-page .wrapper {
-        text-align: center;
-    }
-
     .landing-page .navbar-top {
         background-color: #9ce0ff;
     }
@@ -705,6 +701,7 @@ padding-left: 125px;
     border-color: #00a3e3;
 }
 
+#footer-contact {text-align: center;}
 
 
 
