@@ -18,12 +18,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\Google\GoogleAuthenticatorInterface;
 
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Twig\Token;
 
 class UserController extends AbstractController
 {
@@ -32,10 +34,11 @@ class UserController extends AbstractController
      * @Route("/inscription.html", name="user_register", methods={"GET|POST"})
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
+     * @param GoogleAuthenticatorInterface $authenticator
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function register(Request $request,
-                             UserPasswordEncoderInterface $encoder)
+                             UserPasswordEncoderInterface $encoder, GoogleAuthenticatorInterface $authenticator):response
     {
         $user = new User();
         $user->setRoles(['ROLE_USER']);
@@ -81,6 +84,11 @@ class UserController extends AbstractController
                 $encoder->encodePassword($user, $user->getPassword())
             );
 
+//            je rajoute le authenticator
+
+            $secret = $authenticator->generateSecret();
+            $user->setGoogleAuthenticatorSecret($secret);
+
             $em = $this->getDoctrine()->getManager();
             $em-> persist($user);
             $em->flush();
@@ -122,7 +130,6 @@ class UserController extends AbstractController
     public function logout()
     {
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
-        return $this->redirectToRoute('/inscription.html');
     }
 
     /**
@@ -191,28 +198,42 @@ class UserController extends AbstractController
         ));
     }
 
+//    /**
+//     * @Route ("/verif", name="verif")
+//     * @return Response
+//     */
+//    public function generateSecret(GoogleAuthenticatorInterface $googleAuthenticatorService)
+//    {
+//        $secret = $googleAuthenticatorService->generateSecret();
+////        $qrCodeContent = $container->get("scheb_two_factor.security.google_authenticator")->getQRContent($user);
+////        $qrCode = $qrCodeFactory->create('QR Code', ['size' => 200]);
+//
+//        $qrCode = new QrCode('Life is too short to be generating QR codes');
+//
+//        header('Content-Type: '.$qrCode->getContentType());
+//        echo $qrCode->writeString(__DIR__.'/a.jpg');
+//
+//        return $this->render('security/2fa_form.html.twig');
+//
+//    }
+
+
     /**
-     * @Route ("/verif", name="verif")
-     * @return Response
+     * @Route("/2fa" , name="2fa_login")
+     * @param GoogleAuthenticatorInterface $authenticator
+     * @return
      */
-    public function generateSecret(GoogleAuthenticatorInterface $googleAuthenticatorService)
+    public function check2fa(GoogleAuthenticatorInterface $authenticator)
     {
-        $secret = $googleAuthenticatorService->generateSecret();
-//        $qrCodeContent = $container->get("scheb_two_factor.security.google_authenticator")->getQRContent($user);
-//        $qrCode = $qrCodeFactory->create('QR Code', ['size' => 200]);
+        $code = $authenticator ->getQRContent($this->getUser());
 
-        $qrCode = new QrCode('Life is too short to be generating QR codes');
+        $qrCode = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=".$code;
 
-        header('Content-Type: '.$qrCode->getContentType());
-        echo $qrCode->writeString(__DIR__.'/a.jpg');
 
-        return $this->render('security/2fa_form.html.twig');
-
+        return $this->render('security/2fa_login.html.twig',[
+            'qrCode'=> $qrCode
+    ]);
     }
-
-
-
-
 
 
 
