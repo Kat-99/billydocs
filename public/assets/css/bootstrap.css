@@ -6413,3 +6413,12 @@ button.close {
 #blocinscription #buttonconnexion a {
   background-color: white !important;
 }
+
+/*PAGE ACCUEIL */
+
+
+#qrcode .row {
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 70vh!important;
+}

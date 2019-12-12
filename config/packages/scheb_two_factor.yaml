@@ -2,6 +2,7 @@
 scheb_two_factor:
     google:
         enabled: true                  # If Google Authenticator should be enabled, default false
+        digits: 6                      # Number of digits in authentication code
     security_tokens:
         #- Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken
         #- Acme\AuthenticationBundle\Token\CustomAuthenticationToken

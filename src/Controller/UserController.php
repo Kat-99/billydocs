@@ -198,25 +198,6 @@ class UserController extends AbstractController
         ));
     }
 
-//    /**
-//     * @Route ("/verif", name="verif")
-//     * @return Response
-//     */
-//    public function generateSecret(GoogleAuthenticatorInterface $googleAuthenticatorService)
-//    {
-//        $secret = $googleAuthenticatorService->generateSecret();
-////        $qrCodeContent = $container->get("scheb_two_factor.security.google_authenticator")->getQRContent($user);
-////        $qrCode = $qrCodeFactory->create('QR Code', ['size' => 200]);
-//
-//        $qrCode = new QrCode('Life is too short to be generating QR codes');
-//
-//        header('Content-Type: '.$qrCode->getContentType());
-//        echo $qrCode->writeString(__DIR__.'/a.jpg');
-//
-//        return $this->render('security/2fa_form.html.twig');
-//
-//    }
-
 
     /**
      * @Route("/2fa" , name="2fa_login")
@@ -225,17 +206,15 @@ class UserController extends AbstractController
      */
     public function check2fa(GoogleAuthenticatorInterface $authenticator)
     {
-        $code = $authenticator ->getQRContent($this->getUser());
 
-        $qrCode = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=".$code;
 
+
+        $code = $authenticator->getQRContent($user = $this->getUser());
+        $url = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=.";
+        $qrCode = $url.$code;
 
         return $this->render('security/2fa_login.html.twig',[
             'qrCode'=> $qrCode
     ]);
     }
-
-
-
-
 }

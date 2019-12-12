@@ -1,10 +1,28 @@
 
-<p class="label"><label for="_auth_code">auth_code google:</label></p>
+{% extends 'base.html.twig.' %}
+
+{% block title %}Authentification{% endblock %}
+
+{% block content %}
+
+<div id="qrcode" class="container">
+    <div   class="row">
+        <div  class="col-9 mx-auto text-center">
+
+
 
 <img id="imageQRcode" src="{{ qrCode }}" alt="QR Code" name="imageQRcode"/>
+
 <form class="form" action="/2fa_check" method="post">
+    <label for="_auth_code">Authentifiez-vous!</label>
     <p class="widget"><input id="_auth_code" type="text" autocomplete="off" name="_auth_code" autofocus /></p>
-    <p class="submit"><input type="submit" value="login" /></p>
+    <p class="submit"> <input type="submit" value="Mon code" />  </p>
 </form>
 
-<p class="cancel"><a href="/deconnexion.html">cancel</a></p>
+<button class="cancel">    <a href="http://localhost:8000/inscription.html"> Retour à la page d'accueil </a> </button>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
