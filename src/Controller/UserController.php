@@ -7,6 +7,7 @@ use App\Form\ProfilType;
 use App\Form\PasswordUpdateType;
 use App\Form\ResetPasswordType;
 use App\Entity\PasswordUpdate;
+use Endroid\QrCode\QrCode;
 use Symfony\Component\Form\FormError;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -19,6 +20,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\Google\GoogleAuthenticatorInterface;
+
 
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -119,6 +122,7 @@ class UserController extends AbstractController
     public function logout()
     {
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+        return $this->redirectToRoute('/inscription.html');
     }
 
     /**
@@ -186,6 +190,26 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ));
     }
+
+    /**
+     * @Route ("/verif", name="verif")
+     * @return Response
+     */
+    public function generateSecret(GoogleAuthenticatorInterface $googleAuthenticatorService)
+    {
+        $secret = $googleAuthenticatorService->generateSecret();
+//        $qrCodeContent = $container->get("scheb_two_factor.security.google_authenticator")->getQRContent($user);
+//        $qrCode = $qrCodeFactory->create('QR Code', ['size' => 200]);
+
+        $qrCode = new QrCode('Life is too short to be generating QR codes');
+
+        header('Content-Type: '.$qrCode->getContentType());
+        echo $qrCode->writeString(__DIR__.'/a.jpg');
+
+        return $this->render('security/2fa_form.html.twig');
+
+    }
+
 
 
 

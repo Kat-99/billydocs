@@ -1,4 +1,13 @@
 {
+    "bacon/bacon-qr-code": {
+        "version": "2.0.0"
+    },
+    "beberlei/assert": {
+        "version": "v3.2.6"
+    },
+    "dasprid/enum": {
+        "version": "1.0.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -102,14 +111,29 @@
             "./config/packages/dev/easy_log_handler.yaml"
         ]
     },
+    "endroid/qr-code": {
+        "version": "3.7.3"
+    },
+    "endroid/qr-code-bundle": {
+        "version": "3.4.0"
+    },
     "fzaninotto/faker": {
         "version": "v1.9.0"
     },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "khanamiryan/qrcode-detector-decoder": {
+        "version": "1.0.2"
+    },
+    "lcobucci/jwt": {
+        "version": "3.3.1"
+    },
     "monolog/monolog": {
         "version": "2.0.1"
+    },
+    "myclabs/php-enum": {
+        "version": "1.7.2"
     },
     "nikic/php-parser": {
         "version": "v4.3.0"
@@ -119,6 +143,9 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.2.3"
+    },
+    "paragonie/constant_time_encoding": {
+        "version": "v2.3.0"
     },
     "php": {
         "version": "7.3"
@@ -135,6 +162,19 @@
     "psr/log": {
         "version": "1.1.2"
     },
+    "scheb/two-factor-bundle": {
+        "version": "3.16",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "3.16",
+            "ref": "b5789cd9710e2ee555bf361079b991068a0f640b"
+        },
+        "files": [
+            "./config/packages/scheb_two_factor.yaml",
+            "./config/routes/scheb_two_factor.yaml"
+        ]
+    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -146,6 +186,9 @@
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "spomky-labs/otphp": {
+        "version": "v10.0.0"
     },
     "symfony/annotations-pack": {
         "version": "v1.0.0"
@@ -420,6 +463,9 @@
     },
     "symfony/yaml": {
         "version": "v5.0.1"
+    },
+    "thecodingmachine/safe": {
+        "version": "v0.1.16"
     },
     "twig/extra-bundle": {
         "version": "v3.0.0"
