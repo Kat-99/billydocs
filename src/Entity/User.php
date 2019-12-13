@@ -34,19 +34,21 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank(message="Veuillez entrer votre email")
+     * @Assert\NotBlank(message="Vous avez oublié votre email.")
+     *  @Assert\Email(message="Veuillez vérifier le format.")
      */
     private $email;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date",nullable=false)
      */
     private $inscription_date;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $last_logged_date;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -115,6 +117,7 @@ class User implements UserInterface
     {
         return $this->email;
     }
+
 
     public function setEmail(string $email): self
     {
