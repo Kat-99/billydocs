@@ -38,7 +38,7 @@ class UserController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function register(Request $request,
-                             UserPasswordEncoderInterface $encoder, GoogleAuthenticatorInterface $authenticator):response
+                             UserPasswordEncoderInterface $encoder, GoogleAuthenticatorInterface $authenticator): response
     {
         $user = new User();
         $user->setRoles(['ROLE_USER']);
@@ -78,7 +78,7 @@ class UserController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted()&& $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $user->setPassword(
                 $encoder->encodePassword($user, $user->getPassword())
@@ -90,16 +90,16 @@ class UserController extends AbstractController
 
 
             $em = $this->getDoctrine()->getManager();
-            $em-> persist($user);
+            $em->persist($user);
             $em->flush();
 
-            $this->addFlash('notice','Félicitation, vous pouvez vous connecter!');
+            $this->addFlash('notice', 'Félicitation, vous pouvez vous connecter!');
 
             return $this->redirectToRoute('app_login');
 
         }
 
-        return $this->render('user/register.html.twig',[
+        return $this->render('user/register.html.twig', [
             'form' => $form->createView()
         ]);
 
@@ -129,7 +129,6 @@ class UserController extends AbstractController
      */
     public function logout()
     {
-        throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
 
     /**
@@ -138,21 +137,21 @@ class UserController extends AbstractController
      * @return Response
      */
 
-    public function profil( Request $request)
+    public function profil(Request $request)
     {
         $user = $this->getUser();
 
         $form = $this->createForm(ProfilType::class, $user);
-        $form-> handleRequest($request);
+        $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($user);
             $manager->flush();
         }
 
-        return $this->render('filesparametres/profil.html.twig',[
-            'form'=>$form->createView()
+        return $this->render('filesparametres/profil.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 
@@ -164,7 +163,7 @@ class UserController extends AbstractController
      * @return Response
      */
 
-    public function updatemdp(Request $request , UserPasswordEncoderInterface $passwordEncoder)
+    public function updatemdp(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
@@ -209,9 +208,9 @@ class UserController extends AbstractController
     public function check2fa(GoogleAuthenticatorInterface $authenticator)
     {
         $code = $authenticator->getQRContent($user = $this->getUser());
-        $qrCode = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=".$code;
-        return $this->render('security/2fa_login.html.twig',[
-            'qrCode'=> $qrCode
-    ]);
+        $qrCode = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=" . $code;
+        return $this->render('security/2fa_login.html.twig', [
+            'qrCode' => $qrCode
+        ]);
     }
 }
