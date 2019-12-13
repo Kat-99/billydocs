@@ -1,91 +1,57 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
+
     {% include 'components/_nav.html.twig' %}
-    {% include 'components/sub-nav.html.twig' %}
     {% include 'components/_params.html.twig' %}
 
-    <div class="section section-features">
+    <div class="section section-features mt-10">
         <div class="container">
 
-            <div class="row">
-                {% for message in app.flashes('notice') %}
-                    <div class="alert alert-info">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
-            <h2 class="header-text text-center">Vos documents</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card card-blue">
-                        <div class="icon">
-                            <i class="pe-7s-portfolio"></i>
+                <div class="row">
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-success">
+                            {{ message }}
                         </div>
-                        <div class="text">
-                            <p>Facture EDF 2017</p>
-                        </div>
-                        <div>
-{#                            <a href="{{ path('remove_file', {'id': file.id }) }}">Delete</a>#}
-                            <input type="submit" data-toggle="confirmation" data-message="Etes-vous sûr de vouloir supprimer ce document?" value="supprimer" class="btn btn-md btn-danger">
-                        </div>
-                        <div>
-                            <a class="btn btn-md btn-success" id="update" href="http://localhost:8000/file/{id}/edit">Modifier</a>
-{#                            <object data="docs/{{ document.filename }}" type="application/pdf" width="100%" height="300"></object>#}
-                        </div>
-                        <div class="text">Aperçu : <a href="docs/edf.pdf">edf.pdf</a>
-{#                            <h4>{{ document.title | title }}</h4>#}
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
 
-                <div class="col-md-4">
-                    <div class="card card-blue">
-                        <div class="icon">
-                            <i class="pe-7s-portfolio"></i>
-                        </div>
-                        <div class="text">
-                            <p>Impôts 2017</p>
-                        </div>
-                        <div>
-                            <input type="submit" data-toggle="confirmation" data-message="Etes-vous sûr de vouloir supprimer ce document?" value="supprimer" class="btn btn-md btn-danger">
-                        </div>
-                        <div>
-                            <a class="btn btn-md btn-success" id="update" href="http://localhost:8000/file/{id}/edit">Modifier</a>
-                        </div>
-{#                            <img src="{{ asset('assets/img/' ~ document.image) }}" alt="impot" width="100%" height="300"> Aperçu :#}
-{#                                <a href="assets/img/">{{ document.filename }}</a></object>#}
-                        </div>
-                        <h4>Impôts 2017</h4>
-                    </div>
-                </div>
+                <h2 class="header-text text-center">Vos documents</h2>
+                {% include "components/sub-nav.html.twig" %}
+                <div class="row">
 
-                <div class="col-md-4">
-                    <div class="card card-blue">
-                        <div class="icon">
-                            <i class="pe-7s-portfolio"></i>
+                    {% for file in files %}
+                        <div class="col-md-4">
+                            <div class="card card-blue">
+                                <h3 class="section-title">{{ file.title }}</h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        {% if file.fileType == 'application/pdf' %}
+                                            <object data="{{ asset('uploads/files/' ~ file.filename) }}"
+                                                    type="application/pdf"
+                                                    width="100%"
+                                                    height="250"></object>
+                                        {% elseif file.fileType == 'image/jpeg' or file.fileType == 'image/png' %}
+                                            <img class="img-responsive"
+                                                 src="{{ asset('uploads/files/' ~ file.filename) }}"
+                                                 alt="{{ file.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-12 mt-2">
+                                        <a target="_blank" href="{{ asset('uploads/files/' ~ file.filename) }}" class="btn btn-block btn-success">Télécharger</a>
+                                        <a href="{{ path('editdocument', { 'id' : file.id }) }}" class="btn btn-block btn-warning">Modifier</a>
+                                        <a href="" class="btn btn-block btn-danger">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <p>CV Boulanger</p>
-                        </div>
-                        <div>
-                            <input type="submit" data-toggle="confirmation" data-message="Etes-vous sûr de vouloir supprimer ce document?" value="supprimer" class="btn btn-md btn-danger">
-                        </div>
-                        <div>
-                            <a class="btn btn-md btn-success" id="update" href="http://localhost:8000/file/{id}/edit">Modifier</a>
-                        </div>
-                            <iframe frameborder="0" width="100%" height="300" src="docs/CvAntoine.pdf"></iframe>
-                        </div>
-                        Aperçu : <a
-                                href="docs/CvAntoine.pdf">cvMarketingDigital.pdf</a>
-                        <h4>CV Assistant Maketing</h4>
-                    </div>
+                    {% endfor %}
                 </div>
-            </div>
+            {% endif %}
         </div>
-    </div> <!--/CARDS DOCS-->
-
+    </div>
 
     <!--CARDS FORMULES-->
     <div class="section section-features">

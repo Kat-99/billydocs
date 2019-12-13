@@ -52,7 +52,6 @@ class Files
      */
     private $docdate;
 
-
     /**
      * @ORM\Column(type="string", length=80)
      * @Assert\NotBlank(message="Veuillez attribuer un label à votre document")

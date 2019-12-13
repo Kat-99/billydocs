@@ -29,6 +29,14 @@ class UpdateFile extends AbstractController
     public function update(Files $file, Request $request, EntityManagerInterface $em)
     {
 
+    /*use Symfony\Component\HttpFoundation\File\File;
+// ...
+https://symfony.com/doc/current/controller/upload_file.html
+        $product->setBrochureFilename(
+            new File($this->getParameter('files_directory').'/'.$product->getFilename())
+        );*/
+
+
         $form = $this->createFormBuilder($file)
 
             //title input

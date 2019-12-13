@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,11 +29,8 @@ class AddFileController extends AbstractController
     public function addFile(Request $request)
     {
         $file = new Files();
-
         $user = $this->getUser();
-
         $file->setUser($user);
-
 
         $form = $this->createFormBuilder($file)
 
@@ -113,6 +111,8 @@ class AddFileController extends AbstractController
 
             # Notification
             $this->addFlash('notice', 'Fichier ajouté');
+
+            return $this->redirectToRoute('home');
 
         }
 

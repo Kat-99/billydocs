@@ -1,40 +1,18 @@
-Skip to content
-Search or jump to…
+/*!
+ =========================================================
+ * Awesome Landing Page - v1.2.2
+ =========================================================
 
-Pull requests
-Issues
-Marketplace
-Explore
+ * Product Page: https://www.creative-tim.com/product/awesome-landing-page
+ * Copyright 2017 Creative Tim (http://www.creative-tim.com)
+ * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
 
-@nabajothaurelie
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+ =========================================================
 
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
 
-2
-00Kat-99/billydocs
-Code Issues 0 Pull requests 1 Actions Projects 0 Wiki Security Insights
-billydocs/public/assets/css/landing-page.css
-@Kat-99 Kat-99 Ajustement du #add
-1174334 7 hours ago
-@Kat-99@nabajothaurelie
-715 lines (572 sloc)  12.4 KB
-
-    /*!
-     =========================================================
-     * Awesome Landing Page - v1.2.2
-     =========================================================
-
-     * Product Page: https://www.creative-tim.com/product/awesome-landing-page
-     * Copyright 2017 Creative Tim (http://www.creative-tim.com)
-     * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
-
-     =========================================================
-
-     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-     */
-
-    /*           Font Smoothing      */
+/*           Font Smoothing      */
 h1,
 .h1,
 h2,
@@ -273,8 +251,9 @@ a:active {
 
 
 .landing-page .section-features {
-    margin: 10rem 0;
+    /*margin: 10rem 0;*/
 }
+
 
 .landing-page .section-features .card {
     width: 100%;
@@ -320,7 +299,6 @@ a:active {
     line-height: 22px;
     color: #777;
 }
-
 
 
 .fixed-plugin {
@@ -430,7 +408,6 @@ a:active {
 }
 
 
-
 .fixed-plugin .dropdown-menu > li.active > a p,
 .fixed-plugin .dropdown-menu > li > a p,
 .fixed-plugin .dropdown-menu > li.active > a:focus p {
@@ -467,7 +444,7 @@ a:active {
     right: -9px;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .fixed-plugin {
         top: 80px;
         right: 0px;
@@ -575,10 +552,10 @@ a:active {
     }
 }
 
-    .fixed-plugin .dropdown-menu {
-        top: 0;
-        width: 320px;
-    }
+.fixed-plugin .dropdown-menu {
+    top: 0;
+    width: 320px;
+}
 
 .nav > li {
     text-align: center;
@@ -596,9 +573,9 @@ a:active {
     margin-left: 20px;
 }
 
-    .landing-page .navbar-top {
-        background-color: #9ce0ff;
-    }
+.landing-page .navbar-top {
+    background-color: #9ce0ff;
+}
 
 .landing-page .parallax {
     height: 550px;
@@ -642,18 +619,18 @@ a:active {
     min-height: 210px;
 }
 
-    .footer nav.pull-left,
-    .footer:not(.footer-big) nav > ul li,
-    .pull-right {
-        float: none !important;
-    }
+.footer nav.pull-left,
+.footer:not(.footer-big) nav > ul li,
+.pull-right {
+    float: none !important;
+}
 
 
-    @media (min-width: 768px) {
-        .landing-page .navbar-top {
-            padding-top: 10px;
-        }
+@media (min-width: 768px) {
+    .landing-page .navbar-top {
+        padding-top: 10px;
     }
+}
 
 a:hover {
     color: #a676ff !important;
@@ -693,7 +670,7 @@ a:hover {
 }
 
 #usericon {
-padding-left: 125px;
+    padding-left: 125px;
     color: rebeccapurple;
 }
 
@@ -718,7 +695,7 @@ padding-left: 125px;
 }
 
 #add {
-    float:left !important;
+    float: left !important;
     margin-right: 0 !important;
     border-radius: 4px 4px 0 0;
     background-color: #00a3e3;
@@ -731,10 +708,23 @@ padding-left: 125px;
 }
 
 #add > a:hover {
-    margin-right:0px !important;
+    margin-right: 0px !important;
     border-color: #00a3e3;
 }
 
-#footer-contact {text-align: center;}
+#footer-contact {
+    text-align: center;
+}
 
-#update {color: white !important; margin-top:10px}
+#update {
+    color: white !important;
+    margin-top: 10px
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mt-10 {
+    margin-top: 10rem;
+}
