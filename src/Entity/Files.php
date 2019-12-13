@@ -55,7 +55,7 @@ class Files
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
-     * @ORM\JoinColumn(nullable=false)
+     * ORM\JoinColumn(nullable=false)
      */
     private $user;
 

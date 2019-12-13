@@ -16,6 +16,13 @@
                         <div class="text">
                             <p>Facture EDF 2017</p>
                         </div>
+                        <div>
+                            <a href="{{ path('remove_file', {'id': file.id }) }}">Delete</a>
+                            <input type="submit" data-toggle="confirmation" data-message="Etes-vous sûr de vouloir supprimer ce document?" value="supprimer" class="btn btn-md btn-danger">
+                        </div>
+                        <div>
+                            <a class="btn btn-md btn-success" id="update" href="http://localhost:8000/file/{id}/edit">Modifier</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -23,7 +30,15 @@
                         <div class="icon">
                             <i class="pe-7s-portfolio"></i>
                         </div>
-                        <p>Impôts 2017</p>
+                        <div class="text">
+                            <p>Impôts 2017</p>
+                        </div>
+                        <div>
+                            <input type="submit" data-toggle="confirmation" data-message="Etes-vous sûr de vouloir supprimer ce document?" value="supprimer" class="btn btn-md btn-danger">
+                        </div>
+                        <div>
+                            <a class="btn btn-md btn-success" id="update" href="http://localhost:8000/file/{id}/edit">Modifier</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -31,7 +46,15 @@
                         <div class="icon">
                             <i class="pe-7s-portfolio"></i>
                         </div>
-                        <p>CV Boulanger</p>
+                        <div>
+                            <p>CV Boulanger</p>
+                        </div>
+                        <div>
+                            <input type="submit" data-toggle="confirmation" data-message="Etes-vous sûr de vouloir supprimer ce document?" value="supprimer" class="btn btn-md btn-danger">
+                        </div>
+                        <div>
+                            <a class="btn btn-md btn-success" id="update" href="http://localhost:8000/file/{id}/edit">Modifier</a>
+                        </div>
                     </div>
                 </div>
             </div>

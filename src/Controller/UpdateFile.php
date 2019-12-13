@@ -5,39 +5,36 @@ namespace App\Controller;
 
 use App\Entity\Files;
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-class AddFileController extends AbstractController
+
+class UpdateFile extends AbstractController
 {
     use HelperTrait;
 
     /**
+     * @param Files $file
      * @param Request $request
-     * @Route("/addfile", name="addfile")
+     * @param EntityManagerInterface $em
      * @return Response
+     * @Route("/file/{id}/edit", name="editdocument")
      */
-    public function addFile(Request $request)
+    public function update(Files $file, Request $request, EntityManagerInterface $em)
     {
-        $file = new Files();
-
-        $user = $this->getUser();
-
-        $file->setUser($user);
-
 
         $form = $this->createFormBuilder($file)
 
             //title input
             ->add('title', TextType::class, [
-            'required' => true,
-            'label' => 'Titre',
+                'required' => true,
+                'label' => 'Titre',
             ])
 
             //docdate input
@@ -67,10 +64,8 @@ class AddFileController extends AbstractController
                     'class' => 'dropify'
                 ]
             ])
-
-
             ->add('submit', SubmitType::class, [
-                'label' => 'Ajouter un fichier'
+                'label' => 'Modifier'
             ])
 
             // Creates form
@@ -80,43 +75,35 @@ class AddFileController extends AbstractController
         $form->handleRequest($request);
 
 
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            /** @var UploadedFile $docFile */
-            $docFile = $form['filename']->getData();
-
-            if ($docFile) {
-                $newFileName = $this->slugify($file->getTitle()) . '-' . uniqid().'.'.$docFile->guessExtension();
-                //Laisser à symphony gérer le type de l'image, jpeg, png etc...
-
-                // Move the file to the directory where brochures are stored
-                try {
-                    $docFile->move(
-                        $this->getParameter('files_directory'),
-                        $newFileName
-                    );
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
-
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
-                $file->setFileName($newFileName);
-            }
-
+        if ($form->isSubmitted() && $form->isValid()) {
             # Sauvegarde en BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($file);
             $em->flush();
 
             # Notification
-            $this->addFlash('notice', 'Fichier ajouté');
+            $this->addFlash('notice', 'Fichier mis à jour');
+
+            # Redirection on current page
+            return $this->redirectToRoute('editdocument', [
+                'id' => $file->getId(),
+            ]);
 
         }
 
-        # Transmission du Formulaire à la vue
-        return $this->render('form/form.html.twig', [
-            'form' => $form->createView()
+        return $this->render('form/update.html.twig', [
+            'update' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @param $file
+     * @param EntityManagerInterface $em
+     * @Route("/{id}/file-remove", requirements={"id" = "\d+"}, name="remove_file")
+     */
+    public function delete($file, EntityManagerInterface $em) {
+
+        $em->remove($file);
+        $em->flush();
     }
 }
