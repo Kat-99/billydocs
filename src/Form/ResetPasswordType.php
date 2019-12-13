@@ -17,10 +17,8 @@ class ResetPasswordType extends AbstractType
     {
         $builder
 
-//            ->add('password')
             ->add('oldPassword', PasswordType::class, array(
-                'label' => 'Votre ancien mot de passe' ,
-                'mapped' => false
+                'label' => 'Votre ancien mot de passe'
             ))
             ->add('plainPassword', RepeatedType::class, array(
 
@@ -39,15 +37,6 @@ class ResetPasswordType extends AbstractType
                 'attr' => array(
                     'class' => 'btn btn-primary btn-block'
                 )
-
-//            ->add('firstname', TextType::class, [
-//                'label' => 'Votre prenom' ,
-//                'attr' => [
-//                    'placeholder' => 'Saisissez votre prenom'
-//                ]
-//            ])
-//
-
             ));
 
     }
@@ -55,7 +44,7 @@ class ResetPasswordType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => User::class,
+            'data_class' => null
         ]);
     }
 }

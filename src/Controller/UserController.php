@@ -164,30 +164,32 @@ class UserController extends AbstractController
      * @return Response
      */
 
-    public function updatemdp(Request $request , UserPasswordEncoderInterface $encoder)
+    public function updatemdp(Request $request , UserPasswordEncoderInterface $passwordEncoder)
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $form = $this->createForm(ResetPasswordType::class, $user);
 
-        $form->handleRequest($request);
+        $form = $this->createForm(ResetPasswordType::class)->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $passwordEncoder = $this->get('security.password_encoder');
-//            dump($request->request); die();
-            $oldPassword = $request->request->get('')['oldPassword'];
+            $data = $form->getData();
 
-            // Si l'ancien mot de passe est bon
+            $oldPassword = $data['oldPassword'];
+            $newPassword = $data['plainPassword'];
+
             if ($passwordEncoder->isPasswordValid($user, $oldPassword)) {
-                $newEncodedPassword = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+
+                $newEncodedPassword = $passwordEncoder->encodePassword($user, $newPassword);
+
                 $user->setPassword($newEncodedPassword);
 
-                $em->persist($user);
                 $em->flush();
 
                 $this->addFlash('notice', 'Votre mot de passe à bien été changé !');
 
-                return $this->redirectToRoute('/');
+                return $this->redirectToRoute('home');
+
             } else {
                 $form->addError(new FormError('Ancien mot de passe incorrect'));
             }

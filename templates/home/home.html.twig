@@ -6,6 +6,15 @@
 
     <div class="section section-features">
         <div class="container">
+
+            <div class="row">
+                {% for message in app.flashes('notice') %}
+                    <div class="alert alert-info">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+
             <h2 class="header-text text-center">Vos documents</h2>
             <div class="row">
                 <div class="col-md-4">
