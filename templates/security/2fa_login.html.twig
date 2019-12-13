@@ -1,0 +1,29 @@
+
+{% extends 'base.html.twig.' %}
+
+{% block title %}Authentification{% endblock %}
+
+{% block content %}
+
+<div id="qrcode" class="container">
+    <div   class="row">
+        <div  class="col-9 mx-auto text-center">
+
+
+
+<img id="imageQRcode" src="{{ qrCode }}" alt="QR Code" name="imageQRcode"/>
+
+<form class="form" action="/2fa_check" method="post">
+    <label for="_auth_code">Authentifiez-vous!</label>
+    <p class="widget"><input id="inputcode" type="text" autocomplete="off" name="_auth_code" autofocus /></p>
+    <p class="submit"> <input id="champ_enter" type="submit" value="Mon code" />  </p>
+{#    <img id="imgauth" src="{{ asset('assets/img/billy/billydoc-06.png') }}" alt="">#}
+</form>
+
+<button id="button_retour" class="cancel">    <a href="http://localhost:8000/inscription.html"> Retour à la page d'accueil </a> </button>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

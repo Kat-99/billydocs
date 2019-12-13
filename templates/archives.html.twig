@@ -1,0 +1,178 @@
+{% extends 'base.html.twig' %}
+{% extends 'form.html.twig' %}
+
+{% block body %}
+    <body class="landing-page landing-page1">
+    <nav class="navbar navbar-transparent navbar-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a href="#">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <img src="assets/img/billy/billydoclogo.png" alt="billydocsLogo">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="example">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <button id="boutondeconnexion" type="button" class="btn btn-outline-primary">Déconnexion</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+
+    <!--PARAMETRE-->
+
+    <div class="fixed-plugin">
+        <div class="dropdown toggle">
+            <a href="#" data-toggle="dropdown">
+                <i class="fa fa-cog fa-2x"> </i>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="header-title">Mon Compte</li>
+
+                <li class="active">
+                    <a href="#" class="switch">
+                        <p class="">Changer mon nom</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="switch">
+                        <p class="">Changer mon mot de passe</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="#" class="switch">
+                        <p class="">Changer mon adresse email</p>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#formules" class="switch">
+                        <button id="boutonformule" type="button" class="btn btn-outline-primary">Voir les formules €</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div> <!--/PARAMETRE-->
+
+    <!----CARDS DOCS---->
+    <div class="wrapper">
+        <div class="section section-features">
+            <div class="container">
+                <h2 class="header-text text-center">Vos documents</h2>
+
+                <!--emplacement temporaire de bouton d'ajout de fichier -->
+                <div class="text-center">
+                    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch
+                        Modal LogIn/Register</a>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-portfolio"></i>
+                            </div>
+                            <div class="text">
+                                <p>All appointments sync with your Google calendar so your availability is always up to date. See your schedule at a glance from any device.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-portfolio"></i>
+                            </div>
+                            <p>Automatic text and email reminders make sure customers always remember their upcoming appointments.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-portfolio"></i>
+                            </div>
+                            <p>Take payments and run your business on the go, in your store and then see how it all adds up with analytics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--/CARDS DOCS-->
+
+
+        <!--CARDS FORMULES-->
+        <div class="section section-features">
+            <div class="container">
+                <h2 id="formules" class="header-text text-center">Formules</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-magic-wand"></i>
+                            </div>
+                            <div class="text">
+                                <h3>Gratuit</h3>
+                                <h3>0€ <span>/mois</span></h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto magnam, consequatur sint officiis. Blanditiis numquam officia nobis id iure sed doloribus, adipisci, maiores harum totam ratione ad nostrum ipsum iste?</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-pendrive"></i>
+                            </div>
+                            <h3>Plus</h3>
+                            <h3>5.50€ <span>/mois</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione tempora vero nemo placeat fuga, vitae pariatur dolorum ab! Doloribus qui autem fugiat voluptate tempore, eaque perferendis quibusdam tempora, quis arc</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-blue">
+                            <div class="icon">
+                                <i class="pe-7s-server"></i>
+                            </div>
+                            <h3>Pro</h3>
+                            <h3>15.90€ <span>/mois</span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae in libero voluptatibus ut, eaque provident blanditiis aut impedit modi quos laboriosam repellat iste quia tenetur sapiente. Quasi expedita, exercitationem a!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--/CARDS FORMULES-->
+
+        <!--FOOTER-->
+        <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright">
+                    &copy; 2019 <a href="#">BillyDocs</a>
+                </div>
+            </div>
+        </footer> <!--/FOOTER-->
+    </div>
+
+    </body>
+{% endblock %}

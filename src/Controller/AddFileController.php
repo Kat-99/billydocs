@@ -57,7 +57,7 @@ class AddFileController extends AbstractController
                 'required' => true,
                 'label' => 'Label',
                 'attr' => [
-                    'placeholder' => 'ex: Electricité, Eau, Médecin...'
+                    'placeholder' => 'ex: électricité, eau, médecin...'
                 ]
             ])
 
@@ -102,8 +102,7 @@ class AddFileController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
+                // Store the file name instead of its contents
                 $file->setFileName($newFileName);
             }
 

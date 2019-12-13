@@ -4,29 +4,48 @@
             <i class="fa fa-cog fa-2x"> </i>
         </a>
         <ul class="dropdown-menu">
-            <li class="header-title">Mon Compte</li>
+            {#<li class="header-title">{% block title %}Test affichage{% endblock %}</li> #}
 
-            <li class="active">
-                <a href="#" class="switch">
-                    <p class="">Changer mon nom</p>
-                </a>
+            {#            <li class="active">#}
+            {#                <a href="#" class="switch">#}
+            {#                    <p class="">Changer mon nom</p>#}
+            {#                </a>#}
+            {#            </li>#}
+
+            <form action="" method="post">
+
+                <li class="">
+                    <a href="http://localhost:8000/profil" class="switch">
+                        <button id="boutonprofil" type="button" class="btn btn-outline-primary">Modifier mon profil
+                        </button>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="http://localhost:8000/updatemdp" class="switch">
+                        <button id="boutonmdp" type="button" class="btn btn-outline-primary">Modifier mon mot de passe
+                        </button>
+                    </a>
+                </li>
+
+            </form>
+
+{#            <li class="active">#}
+{#                <a href="#" class="switch">#}
+{#                    <p class=""></p>#}
+{#                </a>#}
+{#            </li>#}
+
+{#            <li class="active">#}
+{#                <a href="#" class="switch">#}
+{#                    <p class=""></p>#}
+{#                </a>#}
             </li>
-            <li class="active">
-                <a href="#" class="switch">
-                    <p class="">Changer mon mot de passe</p>
-                </a>
-            </li>
-            <li class="active">
-                <a href="#" class="switch">
-                    <p class="">Changer mon adresse email</p>
-                </a>
-            </li>
-            <li class="">
-                <a href="#formules" class="switch">
-                    <button id="boutonformule" type="button" class="btn btn-outline-primary">Voir les formules €
-                    </button>
-                </a>
-            </li>
+            {#            <li class="active">#}
+            {#                <a href="#" class="switch">#}
+            {#                    <p class="">Changer mon adresse email</p>#}
+            {#                </a>#}
+            {#            </li>#}
+
         </ul>
     </div>
 </div> <!--/PARAMETRE-->

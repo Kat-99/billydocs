@@ -3,12 +3,20 @@
 {% block content %}
     {% include 'components/_nav.html.twig' %}
     {% include 'components/_params.html.twig' %}
+
     <div class="section section-features">
         <div class="container">
-            <h2 class="header-text text-center">Vos documents</h2>
-            {% include "components/sub-nav.html.twig" %}
-            <div class="row">
 
+            <div class="row">
+                {% for message in app.flashes('notice') %}
+                    <div class="alert alert-info">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h2 class="header-text text-center">Vos documents</h2>
+            <div class="row">
                 <div class="col-md-4">
                     <div class="card card-blue">
                         <div class="icon">
@@ -85,25 +93,21 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card card-blue">
-                        <a href="formules.html">
                         <div class="icon">
                             <i class="pe-7s-magic-wand"></i>
                         </div>
                         <div class="text">
-
                             <h3>Gratuit</h3>
                             <h3>0€ <span>/mois</span></h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto magnam, consequatur sint
                                 officiis. Blanditiis numquam officia nobis id iure sed doloribus, adipisci, maiores
                                 harum totam ratione ad nostrum ipsum iste?</p>
+
                         </div>
-                        </a>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="card card-blue">
-                        <a href="https://www.paypal.com/fr/signin">
                         <div class="icon">
                             <i class="pe-7s-pendrive"></i>
                         </div>
@@ -112,13 +116,10 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione tempora vero nemo placeat
                             fuga, vitae pariatur dolorum ab! Doloribus qui autem fugiat voluptate tempore, eaque
                             perferendis quibusdam tempora, quis arc</p>
-                        </a>
                     </div>
                 </div>
-
                 <div class="col-md-4">
                     <div class="card card-blue">
-                        <a href="https://www.paypal.com/fr/signin">
                         <div class="icon">
                             <i class="pe-7s-server"></i>
                         </div>
@@ -127,10 +128,11 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae in libero voluptatibus ut,
                             eaque provident blanditiis aut impedit modi quos laboriosam repellat iste quia tenetur
                             sapiente. Quasi expedita, exercitationem a!</p>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div> <!--/CARDS FORMULES-->
+    {% include 'components/_footer.html.twig' %}
+
 {% endblock %}

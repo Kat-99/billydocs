@@ -19,7 +19,7 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="Veuiller entrer un titre")
+     * @Assert\NotBlank(message="Veuillez donner un titre à votre document")
      */
     private $title;
 
@@ -48,6 +48,7 @@ class Files
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Veuillez choisir une date")
+     * @var string A "d/m/Y" formatted value
      */
     private $docdate;
 
@@ -60,7 +61,7 @@ class Files
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
-     * ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 

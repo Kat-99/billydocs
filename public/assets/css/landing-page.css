@@ -1,19 +1,40 @@
-/*!
+Skip to content
+Search or jump to…
 
- =========================================================
- * Awesome Landing Page - v1.2.2
- =========================================================
- 
- * Product Page: https://www.creative-tim.com/product/awesome-landing-page
- * Copyright 2017 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
- 
- =========================================================
- 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- */
+Pull requests
+Issues
+Marketplace
+Explore
 
-/*           Font Smoothing      */
+@nabajothaurelie
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+2
+00Kat-99/billydocs
+Code Issues 0 Pull requests 1 Actions Projects 0 Wiki Security Insights
+billydocs/public/assets/css/landing-page.css
+@Kat-99 Kat-99 Ajustement du #add
+1174334 7 hours ago
+@Kat-99@nabajothaurelie
+715 lines (572 sloc)  12.4 KB
+
+    /*!
+     =========================================================
+     * Awesome Landing Page - v1.2.2
+     =========================================================
+
+     * Product Page: https://www.creative-tim.com/product/awesome-landing-page
+     * Copyright 2017 Creative Tim (http://www.creative-tim.com)
+     * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
+
+     =========================================================
+
+     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+     */
+
+    /*           Font Smoothing      */
 h1,
 .h1,
 h2,
@@ -252,7 +273,7 @@ a:active {
 
 
 .landing-page .section-features {
-    margin: 50px 0;
+    margin: 10rem 0;
 }
 
 .landing-page .section-features .card {
@@ -280,7 +301,7 @@ a:active {
 .landing-page .section-features .card.card-blue {
     border-color: #CCE7F5;
     background-color: #f5f9ff;
-    
+
 }
 
 .landing-page .section-features .card.card-blue .icon i {
@@ -393,7 +414,7 @@ a:active {
     border-color: skyblue;
     color: skyblue;
     background-color: white;
-    
+
 }
 
 #boutondeconnexion:hover {
@@ -559,67 +580,67 @@ a:active {
         width: 320px;
     }
 
-    .nav > li {
-        text-align: center;
-    }
+.nav > li {
+    text-align: center;
+}
 
-    .navbar-toggle .icon-bar {
-        background: white;
-    }
+.navbar-toggle .icon-bar {
+    background: white;
+}
 
-    .navbar-toggle {
-        padding: 16px 10px;
-    }
+.navbar-toggle {
+    padding: 16px 10px;
+}
 
-    .logo-container .logo {
-        margin-left: 20px;
-    }
+.logo-container .logo {
+    margin-left: 20px;
+}
 
     .landing-page .navbar-top {
         background-color: #9ce0ff;
     }
 
-    .landing-page .parallax {
-        height: 550px;
-    }
+.landing-page .parallax {
+    height: 550px;
+}
 
-    .landing-page .parallax .parallax-background img {
-        width: auto;
-        height: 100%;
-    }
+.landing-page .parallax .parallax-background img {
+    width: auto;
+    height: 100%;
+}
 
-    .landing-page .parallax .description {
-        margin-top: 65px;
-    }
+.landing-page .parallax .description {
+    margin-top: 65px;
+}
 
-    .landing-page .parallax .buttons {
-        margin: 20px 0;
-    }
+.landing-page .parallax .buttons {
+    margin: 20px 0;
+}
 
-    .landing-page .logos li {
-        display: block;
-        margin-top: 10px;
-    }
+.landing-page .logos li {
+    display: block;
+    margin-top: 10px;
+}
 
-    .landing-page .logos ul {
-        padding-top: 20px;
-    }
+.landing-page .logos ul {
+    padding-top: 20px;
+}
 
-    .landing-page .section-presentation {
-        margin: 0;
-    }
+.landing-page .section-presentation {
+    margin: 0;
+}
 
-    .landing-page .section-presentation {
-        height: auto;
-    }
+.landing-page .section-presentation {
+    height: auto;
+}
 
-    .landing-page .carousel-indicators {
-        bottom: -30px;
-    }
+.landing-page .carousel-indicators {
+    bottom: -30px;
+}
 
-    .landing-page .carousel {
-        min-height: 210px;
-    }
+.landing-page .carousel {
+    min-height: 210px;
+}
 
     .footer nav.pull-left,
     .footer:not(.footer-big) nav > ul li,
@@ -633,6 +654,19 @@ a:active {
             padding-top: 10px;
         }
     }
+
+a:hover {
+    color: #a676ff !important;
+}
+
+#mininav {
+    padding-top: 50px;
+    border-color: skyblue;
+}
+
+#search {
+    padding-top: 25px;
+}
 
 a:hover {
     color: #a676ff !important;
