@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Files;
 use App\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,6 +22,7 @@ class AddFileController extends AbstractController
     /**
      * @param Request $request
      * @Route("/addfile", name="addfile")
+     * @Security("is_granted('IS_AUTHENTICATED_FULLY')")
      * @return Response
      */
     public function addFile(Request $request)
@@ -87,6 +89,7 @@ class AddFileController extends AbstractController
 
             if ($docFile) {
                 $newFileName = $this->slugify($file->getTitle()) . '-' . uniqid().'.'.$docFile->guessExtension();
+                $file->setFileType($docFile->getMimeType());
                 //Laisser à symphony gérer le type de l'image, jpeg, png etc...
 
                 // Move the file to the directory where brochures are stored

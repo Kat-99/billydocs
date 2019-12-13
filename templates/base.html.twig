@@ -27,7 +27,6 @@
 </head>
 
 <body class="landing-page landing-page1">
-{{ render(controller('App\\Controller\\DefaultController::document')) }}
 
 <div class="wrapper">
     {% block content '' %}
@@ -43,7 +42,7 @@
 
     <!--JS perso -->
 
-    <script src="assets/js/button.js"</script>
+    <script src="{{ asset('assets/js/button.js') }}"></script>
 
 
     <!--Dropify-->

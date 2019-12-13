@@ -28,10 +28,6 @@ class DefaultController extends AbstractController
 
     }
 
-    /**
-     * @Route("/{label}", name="default_category", methods={"GET"})
-     * @return Response
-     */
 
     public function category($label)
     {
@@ -48,11 +44,7 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{categorie}/{label}_{id}.html", name="default_document", methods={"GET"})
-     * @param Doc $document
-     * @return Response
-     */
+
     public function document(Doc $document)
     {
         return $this->render('home/home.html.twig' , [

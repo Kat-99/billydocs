@@ -36,6 +36,11 @@ class Files
     private $filename;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $fileType;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $added_date;
@@ -140,4 +145,21 @@ class Files
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFileType()
+    {
+        return $this->fileType;
+    }
+
+    /**
+     * @param mixed $fileType
+     */
+    public function setFileType($fileType): void
+    {
+        $this->fileType = $fileType;
+    }
+
 }
