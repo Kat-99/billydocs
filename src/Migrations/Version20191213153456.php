@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191210161848 extends AbstractMigration
+final class Version20191213153456 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,8 @@ final class Version20191210161848 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE files ADD upload VARCHAR(255) NOT NULL, DROP format, DROP size');
+        $this->addSql('ALTER TABLE files ADD filename VARCHAR(255) NOT NULL, DROP upload, CHANGE user_id user_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE user DROP googleAuthenticatorSecret');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +31,7 @@ final class Version20191210161848 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE files ADD format LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci` COMMENT \'(DC2Type:array)\', ADD size DOUBLE PRECISION NOT NULL, DROP upload');
+        $this->addSql('ALTER TABLE files ADD upload DOUBLE PRECISION NOT NULL, DROP filename, CHANGE user_id user_id INT NOT NULL');
+        $this->addSql('ALTER TABLE user ADD googleAuthenticatorSecret VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
     }
 }
