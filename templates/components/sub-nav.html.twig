@@ -1,12 +1,14 @@
 {% block subNav %}
-<!--MiniNav-->
+    <!--MiniNav-->
     <nav id="mininav">
-    <ul class="nav nav-tabs">
-        <li role="presentation"><a href="#">Nom</a></li>
-        <li role="presentation"><a href="#">Catégorie</a></li>
-        <li role="presentation"><a href="#">Date</a></li>
-        <li role="presentation"><a href="#">Modifié le</a></li>
-    </ul>
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="#">Modifié le</a></li>
+            <li role="presentation"><a href="#">Date</a></li>
+            <li role="presentation"><a href="#">Catégorie</a></li>
+            <li role="presentation"><a href="#">Nom</a></li>
+            <li role="presentation" id="regroup"><a>Regrouper par:</a></li>
+            <li id="add"><a href="http://localhost:8000/addfile">Ajouter un fichier</a></li>
+        </ul>
     </nav>
-<!--FinMiniNav-->
+    <!--FinMiniNav-->
 {% endblock %}

@@ -6,20 +6,28 @@ namespace App\Controller;
 use App\Entity\Files;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 class AddFileController extends AbstractController
 {
+    use HelperTrait;
 
+    /**
+     * @param Request $request
+     * @Route("/addfile", name="addfile")
+     * @return Response
+     */
     public function addFile(Request $request)
     {
         $file = new Files();
 
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findOneBy();
+        $user = $this->getUser();
 
         $file->setUser($user);
 
@@ -34,10 +42,11 @@ class AddFileController extends AbstractController
 
             //docdate input
             ->add('docdate', DateType::class, [
+                'widget' => 'single_text',
                 'required' => true,
                 'label' => 'Date du',
                 'attr' => [
-                    'placeholder' => 'JJ/MM/AAAA'
+                    'placeholder' => 'JJ/MM/YYYY'
                 ]
             ])
 
@@ -46,7 +55,7 @@ class AddFileController extends AbstractController
                 'required' => true,
                 'label' => 'Label',
                 'attr' => [
-                    'placeholder' => 'ex: électricité, eau, médecin...'
+                    'placeholder' => 'ex: Electricité, Eau, Médecin...'
                 ]
             ])
 
@@ -78,7 +87,7 @@ class AddFileController extends AbstractController
 
             if ($docFile) {
                 $newFileName = $this->slugify($file->getTitle()) . '-' . uniqid().'.'.$docFile->guessExtension();
-                // Laisser à symphony gérer le type de l'image, jpeg, png etc...
+                //Laisser à symphony gérer le type de l'image, jpeg, png etc...
 
                 // Move the file to the directory where brochures are stored
                 try {
@@ -90,7 +99,8 @@ class AddFileController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
 
-                // Store the file name instead of its contents
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
                 $file->setFileName($newFileName);
             }
 
@@ -108,6 +118,6 @@ class AddFileController extends AbstractController
         return $this->render('form/form.html.twig', [
             'form' => $form->createView()
         ]);
-
     }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Doc;
+use App\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,6 +29,7 @@ class DocController extends AbstractController
 
         $em->persist($document);
         $em->persist($category);
+
 
         $em->flush();
 

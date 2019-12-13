@@ -19,27 +19,21 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="Veuillez donner un titre à votre document")
+     * @Assert\NotBlank(message="Veuiller entrer un titre")
      */
     private $title;
 
-    /*
-     * @ORM\Column(type="string", length=255)
-     *
-     */
-    private $filename;
-
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      * @Assert\File(
      *     maxSize = "2M",
-     *     uploadFormSizeErrorMessage = "Fichier trop lourd (max 2Mo)",
+     *     maxSizeMessage = "Votre fichier est trop lourd (maximum 2Mo)",
+     *     mimeTypes = {"image/jpeg","image/png", "application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Veuillez charger un fichier au format pdf, jpeg, ou png",
      *     uploadNoFileErrorMessage = "Veuillez charger un fichier",
-     *     mimeTypes = {"image/jpeg","image/png","application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Veuiller charger un fichier au format pdf, jpeg ou png",
-     * )
+     *     )
      */
-    private $upload;
+    private $filename;
 
     /**
      * @ORM\Column(type="datetime")
@@ -48,7 +42,7 @@ class Files
 
     /**
      * @ORM\Column(type="date")
-     * @var string A "d/m/Y" formatted value
+     * @Assert\NotBlank(message="Veuillez choisir une date")
      */
     private $docdate;
 
@@ -61,9 +55,14 @@ class Files
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
-     * @ORM\JoinColumn(nullable=false)
+     * ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    public function __construct()
+    {
+        $this->added_date = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -94,18 +93,6 @@ class Files
         return $this;
     }
 
-    public function getUpload(): ?float
-    {
-        return $this->upload;
-    }
-
-    public function setUpload(float $upload): self
-    {
-        $this->upload = $upload;
-
-        return $this;
-    }
-
     public function getAddedDate(): ?\DateTimeInterface
     {
         return $this->added_date;
@@ -129,7 +116,6 @@ class Files
 
         return $this;
     }
-
 
     public function getLabel(): ?string
     {

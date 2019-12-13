@@ -3,9 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Doc;
-
-
-
 use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,7 +60,7 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    public function sousMenu()
+    public function menu()
     {
         #Récupération des catégories
         $categories = $this->getDoctrine()
