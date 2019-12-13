@@ -26,7 +26,7 @@ security:
                 path: app_logout
 #                       # where to redirect after logout
 #                       # target: app_any_route
-                target: home
+                target: user_register
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -40,4 +40,5 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         # This ensures that the form can only be accessed when two-factor authentication is in progress
+        - { path: ^/logout, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/2fa, role: IS_AUTHENTICATED_2FA_IN_PROGRESS }

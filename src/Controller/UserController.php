@@ -85,9 +85,9 @@ class UserController extends AbstractController
             );
 
 //            je rajoute le authenticator
-
             $secret = $authenticator->generateSecret();
             $user->setGoogleAuthenticatorSecret($secret);
+
 
             $em = $this->getDoctrine()->getManager();
             $em-> persist($user);
@@ -206,13 +206,8 @@ class UserController extends AbstractController
      */
     public function check2fa(GoogleAuthenticatorInterface $authenticator)
     {
-
-
-
         $code = $authenticator->getQRContent($user = $this->getUser());
-        $url = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=.";
-        $qrCode = $url.$code;
-
+        $qrCode = "https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=".$code;
         return $this->render('security/2fa_login.html.twig',[
             'qrCode'=> $qrCode
     ]);

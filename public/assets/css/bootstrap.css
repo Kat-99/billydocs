@@ -6414,11 +6414,46 @@ button.close {
   background-color: white !important;
 }
 
-/*PAGE ACCUEIL */
+/*PAGE AUTHENTIFICATION */
 
 
 #qrcode .row {
   margin-right: -15px;
   margin-left: -15px;
-  margin-top: 70vh!important;
+  margin-top: 30vh!important;
+}
+
+#inputcode{
+  /*display: block;*/
+  /*background-color:  #00a3e3 !important;*/
+}
+
+#champ_enter{
+  display: inline-block;
+  background-color: #00a3e3 !important;
+  color: white;
+  border-radius: 3px;
+  border-color:  #00a3e3 !important;
+  padding-left: 55px !important;
+  padding-right: 55px !important;
+}
+
+#button_retour{
+   margin-top: 30px;
+   background-color: white;
+   padding-left: 10px !important;
+   padding-right: 10px !important;
+   border-color: #00a3e3 !important;
+   border-radius: 3px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+ }
+
+#button_retour a{
+  color: white;
+}
+
+#imgauth {
+  width: 500px !important;
+
 }
