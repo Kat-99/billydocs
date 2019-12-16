@@ -6,7 +6,7 @@ use App\Entity\Files;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class BillyController extends AbstractController
 {
     /**
      * @Route("/", name="home")
@@ -23,6 +23,16 @@ class HomeController extends AbstractController
 
         return $this->render('home/home.html.twig', [
             'files' => array_reverse($files)
+        ]);
+    }
+
+    /**
+     * @Route("/contact.html", name="contact")
+     */
+    public function contact()
+    {
+        return $this->render('contact/contact.html.twig', [
+            'controller_name' => 'ContactController',
         ]);
     }
 }

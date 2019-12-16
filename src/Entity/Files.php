@@ -86,12 +86,12 @@ class Files
         return $this;
     }
 
-    public function getFileName(): ?string
+    public function getFileName()
     {
         return $this->filename;
     }
 
-    public function setFileName(string $filename): self
+    public function setFileName($filename)
     {
         $this->filename = $filename;
 
@@ -160,6 +160,11 @@ class Files
     public function setFileType($fileType): void
     {
         $this->fileType = $fileType;
+    }
+
+    public function isOwner(User $user)
+    {
+        return $user && $this->user->getId() == $user->getId();
     }
 
 }
