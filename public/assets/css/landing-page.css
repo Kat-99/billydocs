@@ -154,7 +154,7 @@ a:active {
 /*------------footer-----------*/
 
 .footer {
-    background-color: #3985cc;
+    background-color: #2c1d0d;
     line-height: 20px;
 }
 
@@ -278,13 +278,12 @@ a:active {
 }
 
 .landing-page .section-features .card.card-blue {
-    border-color: #CCE7F5;
-    background-color: #f5f9ff;
-
+    border-color: #dacbbd;
+    background-color: #f7f4f1;
 }
 
 .landing-page .section-features .card.card-blue .icon i {
-    color: #00bbff;
+    color: #a47c55;
 }
 
 
@@ -306,7 +305,7 @@ a:active {
     top: 50px;
     right: 0;
     width: 64px;
-    background: #00a3e3;
+    background: #a47c55;
     z-index: 1031;
     border-radius: 8px 0 0 8px;
     text-align: center;
@@ -574,7 +573,7 @@ a:active {
 }
 
 .landing-page .navbar-top {
-    background-color: #9ce0ff;
+    background-color: #f3f3f3;
 }
 
 .landing-page .parallax {

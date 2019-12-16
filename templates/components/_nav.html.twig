@@ -19,30 +19,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="example">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <form id="search" class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-                        <button id="boutonrecherche" class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                            Rechercher
-                        </button>
-                    </form>
-                </li>
+
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <li>
                         <a href="{{ path('app_logout') }}">
-                            <button id="boutondedeconnexion" type="button" class="btn btn-outline-primary">Deconnexion
-                            </button>
+                            <button id="boutondedeconnexion" type="button" class="btn btn-billy">Deconnexion</button>
                         </a>
                     </li>
                 {% else %}
                     <li>
                         <a href="{{ path('app_login') }}">
-                            <button id="boutondeconnexion" type="button" class="btn btn-outline-primary">Connexion</button>
+                            <button id="boutondeconnexion" type="button" class="btn btn-outline-billy">Connexion</button>
                         </a>
                     </li>
                     <li>
                         <a href="{{ path('user_register') }}">
-                            <button id="boutondeinscription" type="button" class="btn btn-outline-primary">Inscription</button>
+                            <button id="boutondeinscription" type="button" class="btn btn-billy">Inscription</button>
                         </a>
                     </li>
                 {% endif %}
