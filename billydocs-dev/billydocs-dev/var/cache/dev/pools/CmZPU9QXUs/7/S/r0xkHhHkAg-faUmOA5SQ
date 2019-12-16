@@ -1,0 +1,53 @@
+<?php //%255BApp%255CEntity%255CFiles%2524filename%255D%255B1%255D
+
+namespace Symfony\Component\VarExporter\Internal;
+
+return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
+    $o = [
+        clone (($p = &Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\File'] ?? Registry::p('Symfony\\Component\\Validator\\Constraints\\File')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'length' => [
+                255,
+            ],
+            'binaryFormat' => [
+                1 => false,
+            ],
+            'mimeTypes' => [
+                1 => [
+                    'image/jpeg',
+                    'image/png',
+                    'application/pdf',
+                    'application/x-pdf',
+                ],
+            ],
+            'maxSizeMessage' => [
+                1 => 'Votre fichier est trop lourd (maximum 2Mo)',
+            ],
+            'mimeTypesMessage' => [
+                1 => 'Veuillez charger un fichier au format pdf, jpeg, ou png',
+            ],
+            'uploadNoFileErrorMessage' => [
+                1 => 'Veuillez charger un fichier',
+            ],
+            'groups' => [
+                1 => [
+                    'Default',
+                ],
+            ],
+        ],
+        'Symfony\\Component\\Validator\\Constraints\\File' => [
+            'maxSize' => [
+                1 => 2000000,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+);
