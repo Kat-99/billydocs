@@ -42,7 +42,7 @@
                                     <div class="col-xs-12 mt-2">
                                         <a target="_blank" href="{{ asset('uploads/files/' ~ file.filename) }}" class="btn btn-block btn-success">Télécharger</a>
                                         <a href="{{ path('editdocument', { 'id' : file.id }) }}" class="btn btn-block btn-warning">Modifier</a>
-                                        <a href="" class="btn btn-block btn-danger">Supprimer</a>
+                                        <a href="{{ path('delete', {'id' : file.id }) }}" class="btn btn-block btn-danger">Supprimer</a>
                                     </div>
                                 </div>
                             </div>

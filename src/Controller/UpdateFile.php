@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\File;
 
 class UpdateFile extends AbstractController
 {
@@ -29,12 +30,9 @@ class UpdateFile extends AbstractController
     public function update(Files $file, Request $request, EntityManagerInterface $em)
     {
 
-    /*use Symfony\Component\HttpFoundation\File\File;
-// ...
-https://symfony.com/doc/current/controller/upload_file.html
-        $product->setBrochureFilename(
-            new File($this->getParameter('files_directory').'/'.$product->getFilename())
-        );*/
+       // $file->setFileName(
+       //    new Files($this->getParameter('files_directory').'/'.$file->getFileName())
+        // );
 
 
         $form = $this->createFormBuilder($file)
@@ -102,16 +100,5 @@ https://symfony.com/doc/current/controller/upload_file.html
         return $this->render('form/update.html.twig', [
             'update' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @param $file
-     * @param EntityManagerInterface $em
-     * @Route("/{id}/file-remove", requirements={"id" = "\d+"}, name="remove_file")
-     */
-    public function delete($file, EntityManagerInterface $em) {
-
-        $em->remove($file);
-        $em->flush();
     }
 }
