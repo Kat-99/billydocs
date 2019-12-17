@@ -143,7 +143,7 @@ class FileController extends AbstractController
 
         $filename = $file->getFileName();
         $file->setFileName(
-           new File($this->getParameter('files_directory') . '/' . $file->getFileName())
+           new File($this->getParameter('private_files_directory') . '/' . $file->getFileName())
         );
 
         $form = $this->createFormBuilder($file)
