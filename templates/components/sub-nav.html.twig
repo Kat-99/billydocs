@@ -1,10 +1,10 @@
 <!--MiniNav-->
     <nav id="mininav">
         <ul class="nav nav-tabs">
-            <li role="presentation"><a href="#">Modifié le</a></li>
-            <li role="presentation"><a href="#">Date</a></li>
-            <li role="presentation"><a href="#">Catégorie</a></li>
-            <li role="presentation"><a href="#">Nom</a></li>
+            <li role="presentation"><a href="{{ path('sortby', {sort : order.added_date}) }}">Modifié le</a></li>
+            <li role="presentation"><a href="{{ path('sortby', {sort : order.docdate}) }}">Date</a></li>
+            <li role="presentation"><a href="{{ path('sortby', {sort : order.label}) }}">Label</a></li>
+            <li role="presentation"><a href="{{ path('sortby', {sort : order.title}) }}">Titre</a></li>
             <li role="presentation" id="regroup"><a>Regrouper par:</a></li>
             <li id="add"><a href="{{ path('addfile') }}">Ajouter un fichier</a></li>
         </ul>
