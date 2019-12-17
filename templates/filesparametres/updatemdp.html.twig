@@ -1,18 +1,10 @@
 {% extends "base.html.twig" %}
 
-
 {% block title %}
     Modification mot depasse
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
-
-
 {% block content %}
-    {#    {% include '_nav.html.twig' ignore missing only %}#}
-
 <div  id=""   class="container">
     <div class="row">
         <div class="col-8 mx-auto">
@@ -20,21 +12,10 @@
                 Modifier mon mot de passe
             </h3>
             {{ form(form) }}
-
-{#            <a href="http://localhost:8000/updatemdp" class="switch">#}
-{#                <button id="boutonprofil" type="button" class="btn btn-outline-primary">Modifier mon mot de passe#}
-{#                </button>#}
-{#            </a>#}
-            <a href="http://localhost:8000/" class="switch">
-                <button id="boutonprofil" type="button" class="btn btn-outline-primary">Retour
-                </button>
+            <a href="{{ path('home') }}" class="switch">
+                <button id="boutonprofil" type="button" class="btn btn-outline-primary">Retour</button>
             </a>
-
         </div>
     </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-    {{ parent() }}
 {% endblock %}

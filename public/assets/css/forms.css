@@ -13,29 +13,17 @@
     padding-right:0 !important;
 }
 
-#form_submit {
-    background-color:#ffffff !important;
-    border-color: #a676ff !important;
-    color:#a676ff !important;
-}
-
 #form :nth-child(5n){ text-align:center !important;}
 
-#form_submit:hover{
-    background-color:#00a3e3 !important;
-    border-color: #00a3e3 !important;
-    color: #ffffff !important;
+#retour:hover {
+    background-color:#ffffff !important;
+    border-color: #704c2b !important;
+    color:#704c2b !important;
 }
 
 #retour {
-    background-color:#ffffff !important;
-    border-color: #a676ff !important;
-    color:#a676ff !important;
-}
-
-#retour:hover {
-    background-color:#00a3e3 !important;
-    border-color: #00a3e3 !important;
+    background-color:#704c2b !important;
+    border-color: #704c2b !important;
     color: #ffffff !important;
 }
 
@@ -49,3 +37,9 @@
     margin-top: 4%;
     margin-bottom: 2%;
     border:none;}
+
+#form_submit {
+    background-color: #a47c55 !important;
+    border-color: #a47c55 !important;
+    color: #ffffff !important;
+}

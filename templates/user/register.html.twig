@@ -1,6 +1,5 @@
 {% extends "base.html.twig" %}
 
-
 {% block title %}
     Inscription
 {% endblock %}
@@ -9,24 +8,28 @@
     {{ parent() }}
 {% endblock %}
 
+{#{% block body_class %}login_page{% endblock %}#}
 
 {% block content %}
-    {#{% include 'user/register.html.twig' only %}#}
     <div class="container">
         <div class="row">
-            <div id="blocaccueil"   class="col-12">
-                <div id="blocimage" class="col-md-8">
-                    <img id="image" src="{{ asset('assets/img/billy/billydoc-08.png') }}" alt="imagebilly">
-                </div>
-                <div id="blocinscription" class="col-md-4">
-                    <h2 id="titreaccueil" class="my-4 text-center">
-                        BILLYDOCS
-                    </h2>
-                    <P>Bienvenue sur le site de gestion de données personnelles</P>
-                    {{ form(form) }}
-                    <a href="http://localhost:8000/connexion.html">
-                        <button id="buttonconnexion" type="button" class="btn btn-outline-primary">Connexion</button>
-                    </a>
+            <div id="blocaccueil" class="col-xs-12">
+                <div class="row">
+                    <div id="blocimage" class="col-md-8">
+                        <img class="img-responsive" id="image" src="{{ asset('assets/img/billy/billydoc-08.png') }}"
+                             alt="imagebilly">
+                    </div>
+                    <div id="blocinscription" class="col-md-4">
+                        <h2 id="titreaccueil" class="my-4 text-center">
+                            BILLYDOCS
+                        </h2>
+                        <p>Bienvenue sur le site de gestion de données personnelles.</p>
+                        {{ form(form) }}
+
+                        <a class="btn btn-block btn-outline-billy" href="{{ path('app_login') }}">
+                            Connexion
+                        </a>
+                    </div>
                 </div>
             </div>
 

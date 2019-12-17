@@ -3,7 +3,6 @@
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6363,30 +6362,22 @@ button.close {
 
 /*PAGE ACCUEIL */
 
+body.login_page {
+  background: url(../img/background-billy.jpg) no-repeat;
+  background-size: cover;
+}
 
 #blocimage{
-
 }
 
 #titreaccueil{
-  color:black;
+  color: #a47c55;
+}
+.text-billy {
+  color: #a47c55 !important;
 }
 #blocaccueil{
   margin-top: 20vh;
-  display: inline-block;
-}
-
-#blocaccueil #image {
-  width: 600px !important;
-  position: relative!important;
-  top: 100px !important;
-  right: 50px !important;
-}
-
-#blocinscription button {
-  background-color: #ffffff !important;
-  border-color: #a676ff !important;
-  color: #a676ff !important;
 }
 
 #blocinscription form {
@@ -6394,7 +6385,40 @@ button.close {
   margin-top: 3em;
 }
 
+.btn-billy {
+  background-color: #a47c55 !important;
+  border-color: #a47c55 !important;
+  color: #FFF !important;
+  font-family: inherit !important;
+}
 
+.btn-billy:hover {
+  background-color: #ffffff !important;
+  border-color: #a47c55 !important;
+  color: #a47c55 !important;
+}
+
+.btn-outline-billy {
+  background-color: #ffffff !important;
+  border-color: #a47c55 !important;
+  color: #a47c55 !important;
+  font-family: inherit !important;
+}
+
+.btn-outline-billy:hover {
+  background-color: #a47c55 !important;
+  border-color: #a47c55 !important;
+  color: #FFF !important;
+}
+
+.invalid-feedback.d-block {
+  color: darkred;
+  margin-bottom: .5rem;
+}
+
+.badge-danger {
+  background-color: darkred;
+}
 
 #blocinscription button  {
   display: block;
@@ -6420,7 +6444,7 @@ button.close {
 #qrcode .row {
   margin-right: -15px;
   margin-left: -15px;
-  margin-top: 30vh!important;
+  margin-top: 15vh!important;
 }
 
 #inputcode{

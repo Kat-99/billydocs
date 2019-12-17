@@ -1,29 +1,30 @@
+{% extends 'base.html.twig' %}
 
-{% extends 'base.html.twig.' %}
-
-{% block title %}Authentification{% endblock %}
+{% block title %}Vérifier votre compte{% endblock %}
 
 {% block content %}
 
-<div id="qrcode" class="container">
-    <div   class="row">
-        <div  class="col-9 mx-auto text-center">
+    <div id="qrcode" class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-push-2 text-center">
 
+                <img class="img-responsive" id="image"
+                     src="{{ asset('assets/img/billy/billydoclogo.png') }}" alt="imagebilly">
 
+                <img id="imageQRcode" src="{{ qrCode }}" alt="QR Code" name="imageQRcode"/>
 
-<img id="imageQRcode" src="{{ qrCode }}" alt="QR Code" name="imageQRcode"/>
+                <form class="form" action="/2fa_check" method="post">
+                    <label for="_auth_code">Authentifiez-vous!</label>
+                    <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci aliquid amet aut beatae blanditiis cum delectus dolores ducimus illum ipsam itaque modi molestias, nam qui reprehenderit soluta sunt voluptatum?</small></p>
+                    <input placeholder="Code d'authentification..." class="form-control" id="inputcode" type="text" autocomplete="off" name="_auth_code" autofocus/>
+                    <br>
+                    <button type="submit" class="btn btn-block btn-billy">
+                        Valider mon code
+                    </button>
+                </form>
 
-<form class="form" action="/2fa_check" method="post">
-    <label for="_auth_code">Authentifiez-vous!</label>
-    <p class="widget"><input id="inputcode" type="text" autocomplete="off" name="_auth_code" autofocus /></p>
-    <p class="submit"> <input id="champ_enter" type="submit" value="Mon code" />  </p>
-{#    <img id="imgauth" src="{{ asset('assets/img/billy/billydoc-06.png') }}" alt="">#}
-</form>
-
-<button id="button_retour" class="cancel">    <a href="http://localhost:8000/inscription.html"> Retour à la page d'accueil </a> </button>
-
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

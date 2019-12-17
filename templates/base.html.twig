@@ -15,23 +15,18 @@
         <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/pe-icon-7-stroke.css') }}" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-
-
-        <!--Formulaire-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
-        <link href="assets/css/forms.css" rel="stylesheet" />
+        <link href="{{ asset('assets/css/forms.css') }}" rel="stylesheet" />
         <style>
             .custom-file-label {display:none}
         </style>
     {% endblock %}
 </head>
 
-<body class="landing-page landing-page1">
-
+<body class="landing-page landing-page1 {% block body_class '' %}">
 
 <div class="wrapper">
     {% block content '' %}
-    {% block formulaire '' %}
 </div>
 
 {% block scripts %}

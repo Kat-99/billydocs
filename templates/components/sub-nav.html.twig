@@ -1,12 +1,12 @@
 <!--MiniNav-->
     <nav id="mininav">
         <ul class="nav nav-tabs">
-            <li role="presentation"><a href="#">Modifié le</a></li>
-            <li role="presentation"><a href="#">Date</a></li>
-            <li role="presentation"><a href="#">Catégorie</a></li>
-            <li role="presentation"><a href="#">Nom</a></li>
+            <li role="presentation"><a href="{{ path('home', {sort : 'added_date'}) }}">Modifié le</a></li>
+            <li role="presentation"><a href="{{ path('home', {sort : 'docdate'}) }}">Date</a></li>
+            <li role="presentation"><a href="{{ path('home', {sort : 'label'}) }}">Label</a></li>
+            <li role="presentation"><a href="{{ path('home', {sort : 'title'}) }}">Titre</a></li>
             <li role="presentation" id="regroup"><a>Regrouper par:</a></li>
-            <li id="add"><a href="{{ path('addfile') }}">Ajouter un fichier</a></li>
+            <li id="add"><a class="btn btn-billy" href="{{ path('addfile') }}">Ajouter un fichier</a></li>
         </ul>
     </nav>
 <!--FinMiniNav-->
