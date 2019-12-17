@@ -15,15 +15,15 @@
 
 #form :nth-child(5n){ text-align:center !important;}
 
-#retour {
+#retour:hover {
     background-color:#ffffff !important;
-    border-color: #a676ff !important;
-    color:#a676ff !important;
+    border-color: #704c2b !important;
+    color:#704c2b !important;
 }
 
-#retour:hover {
-    background-color:#00a3e3 !important;
-    border-color: #00a3e3 !important;
+#retour {
+    background-color:#704c2b !important;
+    border-color: #704c2b !important;
     color: #ffffff !important;
 }
 
@@ -37,3 +37,9 @@
     margin-top: 4%;
     margin-bottom: 2%;
     border:none;}
+
+#form_submit {
+    background-color: #a47c55 !important;
+    border-color: #a47c55 !important;
+    color: #ffffff !important;
+}

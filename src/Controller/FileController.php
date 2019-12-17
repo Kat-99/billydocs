@@ -84,7 +84,10 @@ class FileController extends AbstractController
 
 
             ->add('submit', SubmitType::class, [
-                'label' => 'Ajouter un fichier'
+                'label' => 'Ajouter un fichier',
+                'attr' => [
+                    'class' => 'btn-lg'
+                ]
             ])
 
             // Creates form
