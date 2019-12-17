@@ -1,3 +1,0 @@
-<?php //%255BScheb%255CTwoFactorBundle%255CModel%255CGoogle%255CTwoFactorInterface%2523getGoogleAuthenticatorUsername%255D%255B1%255D
-
-return [PHP_INT_MAX, []];

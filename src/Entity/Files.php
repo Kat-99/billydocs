@@ -23,23 +23,22 @@ class Files
      */
     private $title;
 
-    /*
+    /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     maxSizeMessage = "Votre fichier est trop lourd (maximum 2Mo)",
+     *     mimeTypes = {"image/jpeg","image/png", "application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Veuillez charger un fichier au format pdf, jpeg, ou png",
+     *     uploadNoFileErrorMessage = "Veuillez charger un fichier",
+     *     )
      */
     private $filename;
 
     /**
-     * @ORM\Column(type="float")
-     * @Assert\File(
-     *     maxSize = "2M",
-     *     uploadFormSizeErrorMessage = "Fichier trop lourd (max 2Mo)",
-     *     uploadNoFileErrorMessage = "Veuillez charger un fichier",
-     *     mimeTypes = {"image/jpeg","image/png","application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Veuiller charger un fichier au format pdf, jpeg ou png",
-     * )
+     * @ORM\Column(type="string", length=100)
      */
-    private $upload;
+    private $fileType;
 
     /**
      * @ORM\Column(type="datetime")
@@ -48,10 +47,10 @@ class Files
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="Veuillez choisir une date")
      * @var string A "d/m/Y" formatted value
      */
     private $docdate;
-
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -64,6 +63,11 @@ class Files
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    public function __construct()
+    {
+        $this->added_date = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -82,26 +86,14 @@ class Files
         return $this;
     }
 
-    public function getFileName(): ?string
+    public function getFileName()
     {
         return $this->filename;
     }
 
-    public function setFileName(string $filename): self
+    public function setFileName($filename)
     {
         $this->filename = $filename;
-
-        return $this;
-    }
-
-    public function getUpload(): ?float
-    {
-        return $this->upload;
-    }
-
-    public function setUpload(float $upload): self
-    {
-        $this->upload = $upload;
 
         return $this;
     }
@@ -130,7 +122,6 @@ class Files
         return $this;
     }
 
-
     public function getLabel(): ?string
     {
         return $this->label;
@@ -154,4 +145,26 @@ class Files
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFileType()
+    {
+        return $this->fileType;
+    }
+
+    /**
+     * @param mixed $fileType
+     */
+    public function setFileType($fileType): void
+    {
+        $this->fileType = $fileType;
+    }
+
+    public function isOwner(User $user)
+    {
+        return $user && $this->user->getId() == $user->getId();
+    }
+
 }

@@ -1,40 +1,18 @@
-Skip to content
-Search or jump to…
+/*!
+ =========================================================
+ * Awesome Landing Page - v1.2.2
+ =========================================================
 
-Pull requests
-Issues
-Marketplace
-Explore
+ * Product Page: https://www.creative-tim.com/product/awesome-landing-page
+ * Copyright 2017 Creative Tim (http://www.creative-tim.com)
+ * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
 
-@nabajothaurelie
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+ =========================================================
 
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ */
 
-2
-00Kat-99/billydocs
-Code Issues 0 Pull requests 1 Actions Projects 0 Wiki Security Insights
-billydocs/public/assets/css/landing-page.css
-@Kat-99 Kat-99 Ajustement du #add
-1174334 7 hours ago
-@Kat-99@nabajothaurelie
-715 lines (572 sloc)  12.4 KB
-
-    /*!
-     =========================================================
-     * Awesome Landing Page - v1.2.2
-     =========================================================
-
-     * Product Page: https://www.creative-tim.com/product/awesome-landing-page
-     * Copyright 2017 Creative Tim (http://www.creative-tim.com)
-     * Licensed under MIT (https://github.com/creativetimofficial/awesome-landing-page/blob/master/LICENSE.md)
-
-     =========================================================
-
-     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-     */
-
-    /*           Font Smoothing      */
+/*           Font Smoothing      */
 h1,
 .h1,
 h2,
@@ -176,7 +154,7 @@ a:active {
 /*------------footer-----------*/
 
 .footer {
-    background-color: #3985cc;
+    background-color: #2c1d0d;
     line-height: 20px;
 }
 
@@ -273,8 +251,9 @@ a:active {
 
 
 .landing-page .section-features {
-    margin: 10rem 0;
+    /*margin: 10rem 0;*/
 }
+
 
 .landing-page .section-features .card {
     width: 100%;
@@ -299,13 +278,12 @@ a:active {
 }
 
 .landing-page .section-features .card.card-blue {
-    border-color: #CCE7F5;
-    background-color: #f5f9ff;
-
+    border-color: #dacbbd;
+    background-color: #f7f4f1;
 }
 
 .landing-page .section-features .card.card-blue .icon i {
-    color: #00bbff;
+    color: #a47c55;
 }
 
 
@@ -322,13 +300,12 @@ a:active {
 }
 
 
-
 .fixed-plugin {
     position: fixed;
     top: 50px;
     right: 0;
     width: 64px;
-    background: #00a3e3;
+    background: #a47c55;
     z-index: 1031;
     border-radius: 8px 0 0 8px;
     text-align: center;
@@ -430,7 +407,6 @@ a:active {
 }
 
 
-
 .fixed-plugin .dropdown-menu > li.active > a p,
 .fixed-plugin .dropdown-menu > li > a p,
 .fixed-plugin .dropdown-menu > li.active > a:focus p {
@@ -467,7 +443,7 @@ a:active {
     right: -9px;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .fixed-plugin {
         top: 80px;
         right: 0px;
@@ -596,12 +572,8 @@ a:active {
     margin-left: 20px;
 }
 
-.landing-page .wrapper {
-    text-align: center;
-}
-
 .landing-page .navbar-top {
-    background-color: #9ce0ff;
+    background-color: #f3f3f3;
 }
 
 .landing-page .parallax {
@@ -672,6 +644,19 @@ a:hover {
     padding-top: 25px;
 }
 
+a:hover {
+    color: #a676ff !important;
+}
+
+#mininav {
+    padding-top: 50px;
+    border-color: skyblue;
+}
+
+#search {
+    padding-top: 25px;
+}
+
 #boutonrecherche {
     border-color: skyblue;
     color: skyblue;
@@ -709,7 +694,7 @@ a:hover {
 }
 
 #add {
-    float:left !important;
+    float: left !important;
     margin-right: 0 !important;
     border-radius: 4px 4px 0 0;
     background-color: #00a3e3;
@@ -722,27 +707,23 @@ a:hover {
 }
 
 #add > a:hover {
-    margin-right:0px !important;
+    margin-right: 0px !important;
     border-color: #00a3e3;
 }
 
+#footer-contact {
+    text-align: center;
+}
 
+#update {
+    color: white !important;
+    margin-top: 10px
+}
 
+.mt-2 {
+    margin-top: 2rem;
+}
 
-
-
-
-
-
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+.mt-10 {
+    margin-top: 10rem;
+}

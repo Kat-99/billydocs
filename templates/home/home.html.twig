@@ -1,55 +1,57 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
+
     {% include 'components/_nav.html.twig' %}
     {% include 'components/_params.html.twig' %}
 
-    <div class="section section-features">
+    <div class="section section-features mt-10">
         <div class="container">
 
-            <div class="row">
-                {% for message in app.flashes('notice') %}
-                    <div class="alert alert-info">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
-            <h2 class="header-text text-center">Vos documents</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card card-blue">
-                        <div class="icon">
-                            <i class="pe-7s-portfolio"></i>
+                <div class="row">
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-success">
+                            {{ message }}
                         </div>
-                        <div class="text">
-                            <p>All appointments sync with your Google calendar so your availability is always up to
-                                date. See your schedule at a glance from any device.</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-                <div class="col-md-4">
-                    <div class="card card-blue">
-                        <div class="icon">
-                            <i class="pe-7s-portfolio"></i>
+
+                <h2 class="header-text text-center">Vos documents</h2>
+                {% include "components/sub-nav.html.twig" %}
+                <div class="row">
+
+                    {% for file in files %}
+                        <div class="col-md-4">
+                            <div class="card card-blue">
+                                <h3 class="section-title">{{ file.title }}</h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        {% if file.fileType == 'application/pdf' %}
+                                            <object data="{{ path('file_read', { 'id' : file.id }) }}"
+                                                    type="application/pdf"
+                                                    width="100%"
+                                                    height="250"></object>
+                                        {% elseif file.fileType == 'image/jpeg' or file.fileType == 'image/png' %}
+                                            <img class="img-responsive"
+                                                 src="{{ path('file_read', { 'id' : file.id }) }}"
+                                                 alt="{{ file.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-12 mt-2">
+                                        <a href="{{ path('file_download', { 'id' : file.id }) }}" class="btn btn-block btn-success">Télécharger</a>
+                                        <a href="{{ path('editdocument', { 'id' : file.id }) }}" class="btn btn-block btn-warning">Modifier</a>
+                                        <a href="{{ path('delete', {'id' : file.id }) }}" class="btn btn-block btn-danger">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p>Automatic text and email reminders make sure customers always remember their upcoming
-                            appointments.</p>
-                    </div>
+                    {% endfor %}
                 </div>
-                <div class="col-md-4">
-                    <div class="card card-blue">
-                        <div class="icon">
-                            <i class="pe-7s-portfolio"></i>
-                        </div>
-                        <p>Take payments and run your business on the go, in your store and then see how it all adds up
-                            with analytics.</p>
-                    </div>
-                </div>
-            </div>
+            {% endif %}
         </div>
-    </div> <!--/CARDS DOCS-->
-
+    </div>
 
     <!--CARDS FORMULES-->
     <div class="section section-features">

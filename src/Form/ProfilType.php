@@ -17,23 +17,26 @@ class ProfilType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => 'Votre nom' ,
                 'attr' => [
-                    'placeholder' => 'Saisissez votre nom'
+                    'placeholder' => 'Votre nom'
                 ]
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'Votre prenom' ,
                 'attr' => [
-                    'placeholder' => 'Saisissez votre prenom'
+                    'placeholder' => 'Votre prenom'
                 ]
             ])
             ->add('email', TextType::class, [
                 'label' => 'Votre email',
                 'attr' => [
-                    'placeholder' => 'Saisissez votre email'
+                    'placeholder' => 'Votre email'
                 ]
             ])
             ->add('save', submitType::class,[
-                'label'  => 'Enregistrer les modifications']);
+                'label'  => 'Enregistrer les modifications',
+                'attr' => array(
+                    'class' => 'btn btn-billy
+                                btn-block')]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -43,3 +46,5 @@ class ProfilType extends AbstractType
         ]);
     }
 }
+
+

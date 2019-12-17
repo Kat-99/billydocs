@@ -71,7 +71,7 @@ class UserController extends AbstractController
             ->add('submit', SubmitType::class, [
                 'label' => "Je m'inscris !",
                 'attr' => [
-                    'class' => 'btn btn-block btn-dark'
+                    'class' => 'btn btn-block btn-billy'
                 ]
             ])
             ->getForm();
@@ -148,6 +148,8 @@ class UserController extends AbstractController
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($user);
             $manager->flush();
+            $this->addFlash('notice', 'Votre profil a bien été mis a jour!');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('filesparametres/profil.html.twig', [
