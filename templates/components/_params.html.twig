@@ -4,15 +4,17 @@
             <i class="fa fa-cog fa-2x"> </i>
         </a>
         <ul class="dropdown-menu">
+            <h3>Mon Compte</h3>
+            <p class="pnameuser">Bienvenu <span class="nameuser">{{ app.user.lastname }} {{ app.user.firstname }} </span> <br/> sur votre espace personnel.</p>
             <li class="">
                 <a href="{{ path('profil') }}" class="switch">
-                    <button id="boutonprofil" type="button" class="btn btn-outline-primary">Modifier mon profil
+                    <button id="boutonprofil" type="button" class="btn btn-block btn-outline-billy">Modifier mon profil
                     </button>
                 </a>
             </li>
             <li class="">
                 <a href="{{ path('updatemdp') }}" class="switch">
-                    <button id="boutonmdp" type="button" class="btn btn-outline-primary">Modifier mon mot de passe
+                    <button id="boutonmdp" type="button" class="btn btn-block btn-outline-billy">Modifier mon mot de passe
                     </button>
                 </a>
             </li>

@@ -6483,3 +6483,32 @@ body.login_page {
   width: 500px !important;
 
 }
+
+
+
+.bandeau{
+  margin-top: 20vh;
+  margin-bottom: 37vh;
+}
+
+
+.pnameuser{
+  margin-top: 4vh;
+  margin-top: 3vh;
+}
+
+.nameuser{
+  color: darkred;
+  font-weight: bold;
+}
+
+
+
+
+/*MEDIA QUERIES */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  . {
+    display: block !important;
+  }
+}

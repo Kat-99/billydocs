@@ -658,6 +658,19 @@ a:hover {
     padding-top: 25px;
 }
 
+a:hover {
+    color: #a676ff !important;
+}
+
+#mininav {
+    padding-top: 50px;
+    border-color: skyblue;
+}
+
+#search {
+    padding-top: 25px;
+}
+
 #boutonrecherche {
     border-color: skyblue;
     color: skyblue;

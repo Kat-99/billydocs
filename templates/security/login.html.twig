@@ -2,8 +2,6 @@
 
 {% block title %}Connexion{% endblock %}
 
-{#{% block body_class %}login_page{% endblock %}#}
-
 {% block content %}
 
     <div class="container">
@@ -21,7 +19,7 @@
 
                 <form class="mt-10" method="post">
                     {% if error %}
-                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        <div class="alert alert-danger">Vos éléments d'identifications sont éronnés.</div>
                     {% endif %}
 
                     <h1 class="h3 mb-3 font-weight-normal text-center text-billy">Connexion</h1>
