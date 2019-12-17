@@ -96,12 +96,12 @@ body {
 }
 
 a {
-    color: #48d6ff !important;
+    color: #c08247 !important;
 }
 
 a:hover,
 a:focus {
-    color: #337aff;
+    color: #c08247;
     text-decoration: none;
 }
 
@@ -228,6 +228,7 @@ a:active {
 
 .landing-page1 .container {
     max-width: 970px;
+    text-align: center;
 }
 
 .landing-page2 .container {
@@ -632,12 +633,12 @@ a:active {
 }
 
 a:hover {
-    color: #a676ff !important;
+    color: #c08247 !important;
 }
 
 #mininav {
     padding-top: 50px;
-    border-color: skyblue;
+    border-color: #704c2b;
 }
 
 #search {
@@ -645,12 +646,12 @@ a:hover {
 }
 
 a:hover {
-    color: #a676ff !important;
+    color: #c08247 !important;
 }
 
 #mininav {
     padding-top: 50px;
-    border-color: skyblue;
+    border-color: #704c2b;
 }
 
 #search {
@@ -702,7 +703,7 @@ a:hover {
 
 #add > a {
     margin-right: 0 !important;
-    color: white !important;
+    color: #ffc937 !important;
     font-weight: bold;
 }
 
