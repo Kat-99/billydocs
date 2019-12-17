@@ -4,26 +4,15 @@
             <i class="fa fa-cog fa-2x"> </i>
         </a>
         <ul class="dropdown-menu">
-            <li class="header-title">Mon Compte</li>
-
-            <li class="active">
-                <a href="#" class="switch">
-                    <p class="">Changer mon nom</p>
-                </a>
-            </li>
-            <li class="active">
-                <a href="#" class="switch">
-                    <p class="">Changer mon mot de passe</p>
-                </a>
-            </li>
-            <li class="active">
-                <a href="#" class="switch">
-                    <p class="">Changer mon adresse email</p>
+            <li class="">
+                <a href="{{ path('profil') }}" class="switch">
+                    <button id="boutonprofil" type="button" class="btn btn-outline-primary">Modifier mon profil
+                    </button>
                 </a>
             </li>
             <li class="">
-                <a href="#formules" class="switch">
-                    <button id="boutonformule" type="button" class="btn btn-outline-primary">Voir les formules €
+                <a href="{{ path('updatemdp') }}" class="switch">
+                    <button id="boutonmdp" type="button" class="btn btn-outline-primary">Modifier mon mot de passe
                     </button>
                 </a>
             </li>

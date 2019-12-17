@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191212165352 extends AbstractMigration
+final class Version20191213190359 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,8 @@ final class Version20191212165352 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE files CHANGE user_id user_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE files ADD file_type VARCHAR(100) NOT NULL, CHANGE user_id user_id INT NOT NULL');
+        $this->addSql('ALTER TABLE user ADD googleAuthenticatorSecret VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +31,7 @@ final class Version20191212165352 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE files CHANGE user_id user_id INT NOT NULL');
+        $this->addSql('ALTER TABLE files DROP file_type, CHANGE user_id user_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE user DROP googleAuthenticatorSecret');
     }
 }

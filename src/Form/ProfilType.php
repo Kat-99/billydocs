@@ -4,30 +4,36 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class NameFormType extends AbstractType
+class ProfilType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
-            ->add('firstname', TextType::class, [
-                'label' => false,
-                'attr' => [
-                    'placeholder' => 'Saisissez votre prénom'
-                ]
-            ])
             ->add('lastname', TextType::class, [
-                'label' => false,
+                'label' => 'Votre nom' ,
                 'attr' => [
                     'placeholder' => 'Saisissez votre nom'
                 ]
             ])
-
-            ->getForm();
+            ->add('firstname', TextType::class, [
+                'label' => 'Votre prenom' ,
+                'attr' => [
+                    'placeholder' => 'Saisissez votre prenom'
+                ]
+            ])
+            ->add('email', TextType::class, [
+                'label' => 'Votre email',
+                'attr' => [
+                    'placeholder' => 'Saisissez votre email'
+                ]
+            ])
+            ->add('save', submitType::class,[
+                'label'  => 'Enregistrer les modifications']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

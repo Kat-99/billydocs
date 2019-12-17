@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Modification mot depasse
+{% endblock %}
+
+{% block content %}
+<div  id=""   class="container">
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <h3 class="my-4 text-center">
+                Modifier mon mot de passe
+            </h3>
+            {{ form(form) }}
+            <a href="{{ path('home') }}" class="switch">
+                <button id="boutonprofil" type="button" class="btn btn-outline-primary">Retour</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -15,24 +15,18 @@
         <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
         <link href="{{ asset('assets/css/pe-icon-7-stroke.css') }}" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-
-
-        <!--Formulaire-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
-        <link href="assets/css/forms.css" rel="stylesheet" />
+        <link href="{{ asset('assets/css/forms.css') }}" rel="stylesheet" />
         <style>
             .custom-file-label {display:none}
         </style>
     {% endblock %}
 </head>
 
-<body class="landing-page landing-page1">
-{{ render(controller('App\\Controller\\DefaultController::document')) }}
+<body class="landing-page landing-page1 {% block body_class '' %}">
 
 <div class="wrapper">
     {% block content '' %}
-    {% block formulaire '' %}
-    {% include 'components/_footer.html.twig' %}
 </div>
 
 {% block scripts %}
@@ -40,6 +34,11 @@
     <script src="{{ asset('assets/js/jquery-ui-1.10.4.custom.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/bootstrap.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/awesome-landing-page.js') }}" type="text/javascript"></script>
+
+    <!--JS perso -->
+
+    <script src="{{ asset('assets/js/button.js') }}"></script>
+
 
     <!--Dropify-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>

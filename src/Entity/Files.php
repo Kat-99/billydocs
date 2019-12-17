@@ -19,7 +19,7 @@ class Files
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(message="Veuiller entrer un titre")
+     * @Assert\NotBlank(message="Veuillez donner un titre à votre document")
      */
     private $title;
 
@@ -36,6 +36,11 @@ class Files
     private $filename;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $fileType;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $added_date;
@@ -43,9 +48,9 @@ class Files
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="Veuillez choisir une date")
+     * @var string A "d/m/Y" formatted value
      */
     private $docdate;
-
 
     /**
      * @ORM\Column(type="string", length=80)
@@ -55,7 +60,7 @@ class Files
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="files")
-     * ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
@@ -81,12 +86,12 @@ class Files
         return $this;
     }
 
-    public function getFileName(): ?string
+    public function getFileName()
     {
         return $this->filename;
     }
 
-    public function setFileName(string $filename): self
+    public function setFileName($filename)
     {
         $this->filename = $filename;
 
@@ -140,4 +145,26 @@ class Files
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getFileType()
+    {
+        return $this->fileType;
+    }
+
+    /**
+     * @param mixed $fileType
+     */
+    public function setFileType($fileType): void
+    {
+        $this->fileType = $fileType;
+    }
+
+    public function isOwner(User $user)
+    {
+        return $user && $this->user->getId() == $user->getId();
+    }
+
 }
