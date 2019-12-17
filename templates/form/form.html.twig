@@ -1,78 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
-    <link href="assets/css/forms.css" rel="stylesheet" />
-    <style>
-        .custom-file-label {display:none}
-    </style>
-{% endblock %}
-
-<!--Modal: Login / Register Form-->
-<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal" role="document">
-        <!--Content-->
-        <div class="modal-content">
-
-            <!--Modal cascading tabs-->
-            <div class="modal-c-tabs">
-
-                <!-- Nav tabs -->
-                <div class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" id="addbar" role="tablist">
-                    <h3>
-                        Ajouter un fichier
-                    </h3>
-                    {{ form(form) }}
+{% block content %}
+    <div class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" id="addbar" role="tablist">
+        <div class="container">
+            <div class="row">
+                <div id="backdiv" class="col-sm-offset-2">
+                    <a href="{{ path('home') }}" class="btn btn-success" id="retour">Retour</a>
                 </div>
-
-                <!-- Tab panels -->
-                <div class="tab-content">
-                    <!--Panel 7-->
-                    <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-                        <!--Body-->
-                        <div class="modal-body mb-1">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-envelope prefix"></i>
-                                <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                            </div>
-
-                            <div class="text-center mt-2">
-                                <button class="btn btn-info">Ajouter un fichier</button>
-                            </div>
-                        </div>
-                        <!--Footer-->
-                    </div>
-                    <!--/.Panel 7-->
+            </div>
+            <h2 id="titleadd">Ajouter un fichier</h2>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2" id="formdiv">
+                    {{ form(form) }}
                 </div>
             </div>
         </div>
-        <!--/.Content-->
     </div>
-</div>
-<!--Modal: Login / Register Form-->
-
-<div class="text-center">
-    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Launch
-        Modal LogIn/Register</a>
-</div>
-
-{% block scripts %}
-    {{ parent() }}
-
-    <!--Dropify-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
-    <script>
-        $('.dropify').dropify({
-            messages: {
-                default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
-                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
-                remove:  'Supprimer',
-                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
-            }
-        });
-    </script>
 {% endblock %}

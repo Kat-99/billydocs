@@ -1,0 +1,10 @@
+# config/packages/scheb_two_factor.yaml
+scheb_two_factor:
+    google:
+        enabled: true                  # If Google Authenticator should be enabled, default false
+        digits: 6                      # Number of digits in authentication code
+    security_tokens:
+        #- Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken
+        #- Acme\AuthenticationBundle\Token\CustomAuthenticationToken
+        #-  Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken
+        - Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken

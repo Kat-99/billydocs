@@ -1,0 +1,126 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    {% include 'components/_nav.html.twig' %}
+    {% include 'components/_params.html.twig' %}
+
+    <div class="section section-features mt-10">
+        <div class="container">
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                <div class="row">
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <h2 class="header-text text-center">Vos documents</h2>
+                {% include "components/sub-nav.html.twig" %}
+                <div class="row">
+
+                    {% for file in files %}
+                        <div class="col-md-4">
+                            <div class="card card-blue">
+                                <h3 class="section-title">{{ file.title }}</h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        {% if file.fileType == 'application/pdf' %}
+                                            <object data="{{ path('file_read', { 'id' : file.id }) }}"
+                                                    type="application/pdf"
+                                                    width="100%"
+                                                    height="250"></object>
+                                        {% elseif file.fileType == 'image/jpeg' or file.fileType == 'image/png' %}
+                                            <img class="img-responsive"
+                                                 src="{{ path('file_read', { 'id' : file.id }) }}"
+                                                 alt="{{ file.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-12 mt-2">
+                                        <a href="{{ path('file_download', { 'id' : file.id }) }}" class="btn btn-block btn-success">Télécharger</a>
+                                        <a href="{{ path('editdocument', { 'id' : file.id }) }}" class="btn btn-block btn-warning">Modifier</a>
+                                        <a href="{{ path('delete', {'id' : file.id }) }}" class="btn btn-block btn-danger">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <!--CARDS FORMULES-->
+    <div class="section section-features">
+        <div class="container">
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Formules</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Nous vous proposons:</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h2 id="formules" class="header-text text-center">Formules</h2>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card card-blue">
+                                        <div class="icon">
+                                            <i class="pe-7s-magic-wand"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h3>Gratuit</h3>
+                                            <h3>0€ <span>/mois</span></h3>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto magnam, consequatur sint
+                                                officiis. Blanditiis numquam officia nobis id iure sed doloribus, adipisci, maiores
+                                                harum totam ratione ad nostrum ipsum iste?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card card-blue">
+                                        <div class="icon">
+                                            <i class="pe-7s-pendrive"></i>
+                                        </div>
+                                        <h3>Plus</h3>
+                                        <h3>5.50€ <span>/mois</span></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione tempora vero nemo placeat
+                                            fuga, vitae pariatur dolorum ab! Doloribus qui autem fugiat voluptate tempore, eaque
+                                            perferendis quibusdam tempora, quis arc</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card card-blue">
+                                        <div class="icon">
+                                            <i class="pe-7s-server"></i>
+                                        </div>
+                                        <h3>Pro</h3>
+                                        <h3>15.90€ <span>/mois</span></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae in libero voluptatibus ut,
+                                            eaque provident blanditiis aut impedit modi quos laboriosam repellat iste quia tenetur
+                                            sapiente. Quasi expedita, exercitationem a!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--/CARDS FORMULES-->
+    </div>
+
+
+    {% include 'components/_footer.html.twig' %}
+
+{% endblock %}

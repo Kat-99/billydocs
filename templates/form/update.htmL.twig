@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block formulaire %}
+    <div class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" id="addbar" role="tablist">
+        <div class="container">
+            <div class="row">
+                <div id="backdiv" class="col-sm-offset-2">
+                    <a href="http://localhost:8000/" class="btn btn-success" id="retour">Retour</a>
+                </div>
+            </div>
+            <h2 id="titleadd">Modifier un fichier</h2>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2" id="formdiv">
+                    {{ form(update) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

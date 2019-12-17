@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vérifier votre compte{% endblock %}
+
+{% block content %}
+
+    <div id="qrcode" class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-push-2 text-center">
+
+                <img class="img-responsive" id="image"
+                     src="{{ asset('assets/img/billy/billydoclogo.png') }}" alt="imagebilly">
+
+                <img id="imageQRcode" src="{{ qrCode }}" alt="QR Code" name="imageQRcode"/>
+
+                <form class="form" action="/2fa_check" method="post">
+                    <label for="_auth_code">Authentifiez-vous!</label>
+                    <p><small>Plus qu'une étape avant de rentrer sur votre compte sécurisé ! <br/> 1- Munissez-vous d'une application mobile de type lecteur OTP auth <br/> en libre accès sur IOS ou Android.  <br/> 2- Entrez le code d'authentification puis validez le code généré.</small></p>
+                    <input placeholder="Code d'authentification..." class="form-control" id="inputcode" type="text" autocomplete="off" name="_auth_code" autofocus/>
+                    <br>
+                    <button type="submit" class="btn btn-block btn-billy">
+                        Valider mon code
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
