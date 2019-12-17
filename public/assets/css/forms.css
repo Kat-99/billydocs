@@ -13,19 +13,7 @@
     padding-right:0 !important;
 }
 
-#form_submit {
-    background-color:#ffffff !important;
-    border-color: #a676ff !important;
-    color:#a676ff !important;
-}
-
 #form :nth-child(5n){ text-align:center !important;}
-
-#form_submit:hover{
-    background-color:#00a3e3 !important;
-    border-color: #00a3e3 !important;
-    color: #ffffff !important;
-}
 
 #retour {
     background-color:#ffffff !important;

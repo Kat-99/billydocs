@@ -1,6 +1,5 @@
 {% extends "base.html.twig" %}
 
-
 {% block title %}
     Inscription
 {% endblock %}
@@ -8,51 +7,13 @@
 {% block content %}
     <div class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" id="" role="tablist">
         <div class="container">
-
-
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 p-4" id="">
                     <h2 id="">Modifier mon profil</h2>
                     {{ form(form) }}
-                    <a href="http://localhost:8000/" class="btn btn-success" id="retour">Retour</a>
+                    <a href="{{ path('home') }}" class="btn btn-success" id="retour">Retour</a>
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-{#{% block stylesheets %}#}
-{#    {{ parent() }}#}
-{#{% endblock %}#}
-
-
-{#{% block content %}#}
-{#    #}{#    {% include '_nav.html.twig' ignore missing only %}#}
-
-{#    <div  id=""   class="container">#}
-{#        <div class="row">#}
-{#            <div class="col-8 mx-auto">#}
-{#                <h3 class="my-4 text-center">#}
-{#                    Modifier mon profil#}
-{#                </h3>#}
-{#                {{ form(form) }}#}
-
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock %}#}
-
-{#{% block scripts %}#}
-{#    {{ parent() }}#}
-{#{% endblock %}#}

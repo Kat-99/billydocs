@@ -71,7 +71,7 @@ class UserController extends AbstractController
             ->add('submit', SubmitType::class, [
                 'label' => "Je m'inscris !",
                 'attr' => [
-                    'class' => 'btn btn-block btn-dark'
+                    'class' => 'btn btn-block btn-billy'
                 ]
             ])
             ->getForm();
